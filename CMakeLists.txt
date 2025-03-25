@@ -15,3 +15,8 @@ add_executable(Snake main.cpp
         menu.cpp
         menu.h
 )
+
+find_package(Curses REQUIRED)
+include_directories(${CURSES_INCLUDE_DIR})
+target_link_libraries(Snake ${CURSES_LIBRARIES})
+

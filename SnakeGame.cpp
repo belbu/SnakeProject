@@ -2,6 +2,9 @@
 #include "Board.hpp"
 #include "Snake.h"
 #include "Apple.h"
+#include <iostream>
+#include <fstream>
+using namespace std;
 
 SnakeGame::SnakeGame(int mapHeight, int mapWidth, int snakeLength, int level) : board(mapHeight,mapWidth,level),
    snake(board.getScreenRows(), board.getScreenCols(), snakeLength, board.getWindow()),
@@ -67,7 +70,7 @@ void SnakeGame::run() {
          snake.Draw();
          apple.drawApple();
          board.refreshScreen();
-         //newHighestScore();
+         newHighestScore();
       }
       napms(70);
    }
@@ -81,6 +84,10 @@ void SnakeGame::run() {
 void SnakeGame::newHighestScore() {
    if (this->score > this->highestScore) {
       this->highestScore = this->score;
+      ofstream outputFile; /* Dichiarazione di tipo */
+      outputFile.open("punteggio.txt"); /* Apertura del file */
+      outputFile << this->highestScore;
+      outputFile.close();
    }
 }
 

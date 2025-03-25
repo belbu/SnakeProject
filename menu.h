@@ -6,7 +6,6 @@
 class menu {
 protected:
     void startGame(int snakeLength);
-    void setLength(int& snakeLength);
 public:
     menu();
     ~menu();

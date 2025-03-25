@@ -1,8 +1,8 @@
 #include "SnakeGame.h"
 #include "menu.h"
 int main() {
-    // menu Menu;
-    // Menu.showMenu();
+    menu Menu;
+    Menu.showMenu();
 
     int mapHeight = 25;
     int mapWidth = 45;
