@@ -12,8 +12,18 @@ SnakeGame::SnakeGame(int mapHeight, int mapWidth, int snakeLength, int level) : 
    this->gameon = true;
    this->score = 0;
    this->level = level;
-   this->highestScore = 0; //da modificare
-}
+   std::ifstream file("punteggio.txt");
+   if (file) {  // Se il file esiste ed è leggibile
+      file >> this->highestScore;  // Legge il valore numerico
+      if (file.fail()) { // Se la lettura non è andata a buon fine
+         this->highestScore = 0; // Imposta un valore di default
+      }
+   } else {
+      this->highestScore = 0;  // Se il file non esiste, imposta 0
+   }
+
+   file.close();  // Chiude il file
+   std::cout << "Highscore caricato: " << highestScore << std::endl;}
 
 void SnakeGame::CheckAppleCollision() {
    coordinates head = snake.get_head();

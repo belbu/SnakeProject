@@ -1,6 +1,9 @@
 #include <curses.h>
 #include "menu.h"
 #include "SnakeGame.h"
+#include <iostream>
+#include <fstream>
+using namespace std;
 
 menu::menu() {
     initscr();
@@ -49,8 +52,17 @@ void menu::showMenu() {
             }
             else if (user_input == 2) {
                 clear();
-                printw("\nComing soon\n");
                 refresh();
+                std::ifstream file("punteggio.txt");
+                int highestScore = 0;
+
+                if (file && file.peek() != std::ifstream::traits_type::eof()) {
+                    file >> highestScore;
+                    if (file.fail()) highestScore = 0;
+                }
+
+                file.close();
+                std::cout << "Il punteggio massimo è: " << highestScore << std::endl;
                 getch();  // 🔹 Aspetta che l'utente prema un tasto prima di continuare
             }
             else if (user_input == 3) {
