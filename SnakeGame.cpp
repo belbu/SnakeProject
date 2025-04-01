@@ -71,6 +71,7 @@ void SnakeGame::run() {
 
       snake.ChangeDirection(last_key);
       gameon = snake.Move();
+
       if (gameon) {
          CheckAppleCollision();
          board.printLevel();
@@ -80,9 +81,13 @@ void SnakeGame::run() {
          snake.Draw();
          apple.drawApple();
          board.refreshScreen();
+         int time = board.Timer();
          newHighestScore();
+         if (!time) {
+            gameon = false;
+         }
       }
-      napms(70);
+      napms(75);
    }
 
    if (!gameon) {

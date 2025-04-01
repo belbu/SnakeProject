@@ -1,5 +1,6 @@
 #include <curses.h>
 #include "Board.hpp"
+#include <chrono>
 
 Board::Board(int height, int width, int level) {
     initscr();              // Inizializza lo schermo
@@ -20,10 +21,12 @@ Board::Board(int height, int width, int level) {
     this->width = width;
     this->height = height;
     // score(0);
+    this->startTime = time(nullptr); //
 }
 
 void Board::initializeBoard() {
     box(this->win,0,0);
+    curs_set(0);
     wrefresh(win);
 
 }
@@ -33,6 +36,15 @@ void Board::printHighestScore(int highestScore) {
     mvprintw(this->startY + this->height + 1, this->startX,"highest score: %d", highestScore);
 }
 
+int Board::Timer() {
+    int difference = time(nullptr) - startTime;
+    int remainingTime = 120 - difference; // 2 minuti totali
+    if (remainingTime < 0) remainingTime = 0;
+    mvprintw(this->startY - 2, this->startX + (this->width / 2) - 5, "Time: %02d:%02d", remainingTime / 60, remainingTime % 60);
+    refresh();
+    if (remainingTime > 0) return 1;
+    else return 0;
+}
 
 void Board::score(int score) {
     mvprintw(this->startY - 1,this->startX,"score: %d",score);
@@ -41,7 +53,6 @@ void Board::score(int score) {
 void Board::printLevel() {
     mvprintw(this->startY - 1, this->startX + this->width - 10, "level: %d",this->level);
 }
-
 
 void Board::drawBorder() {
     werase(win);

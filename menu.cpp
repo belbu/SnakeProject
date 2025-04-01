@@ -31,7 +31,7 @@ void menu::startGame(int snakeLength) {
 
 void menu::showMenu() {
     int choice;
-    int snakeLength = 4;
+    int snakeLength = 6;
 
     bool show = true;
     while (show) {
@@ -48,7 +48,7 @@ void menu::showMenu() {
             int user_input = choice - '0';
             if (user_input == 1) {
                 startGame(snakeLength);
-                return;  // ✅ Esce immediatamente
+                return;  //
             }
             else if (user_input == 2) {
                 clear();
@@ -66,7 +66,7 @@ void menu::showMenu() {
                 getch();  // 🔹 Aspetta che l'utente prema un tasto prima di continuare
             }
             else if (user_input == 3) {
-                return;  // ✅ Esce immediatamente dal menu
+                return;  //
             }
             else {
                 printw("\nPress a valid key...\n");

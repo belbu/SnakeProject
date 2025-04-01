@@ -14,7 +14,7 @@ Apple::Apple(WINDOW* win, int screen_rows, int screen_cols) {
 }
 
 void Apple::random_position() {
-    this->position.row = std::rand() % (this->screen_rows - 2) + 1; // Evita i bordi
+    this->position.row = std::rand() % (this->screen_rows - 2) + 1;
     this->position.col = std::rand() % (this->screen_cols - 2) + 1;
 }
 

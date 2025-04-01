@@ -12,6 +12,7 @@ protected:
     int level;
     int width;
     int height;
+    int startTime; //
 public:
     Board(int height, int width, int level);
     ~Board();
@@ -24,6 +25,7 @@ public:
     void printLevel();
     void printHighestScore(int highestScore);
     void initializeBoard();
+    int Timer();
 };
 
 
