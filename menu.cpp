@@ -46,7 +46,7 @@ void menu::startGame() {
             game = nullptr;
         }
 
-        game = new SnakeGame(20, 40, 6, 1);
+        game = new SnakeGame(20, 40, 7, 1);
         game->run();
 
         initScreen();
@@ -65,9 +65,9 @@ void menu::startGame() {
         } while (choice < '1' || choice > '3');
 
         switch (choice) {
-            case '1': continue;  // Continua il loop
+            case '1': continue;
             case '2': playAgain = false; break;
-            case '3': playAgain = false; break;
+            case '3': playAgain = false; exit(EXIT_SUCCESS); break;
         }
     }
     showMenu();
@@ -78,7 +78,6 @@ void menu::showMenu() {
 
     bool show = true;
     while (show) {
-
         clear();
         printw("----- SNAKE MENU -----\n");
         printw("1 Start game\n");
@@ -125,10 +124,7 @@ void menu::showHighScores() {
     printw("HIGH SCORE: %d\n\n", highestScore);
     printw("Press any key to return to menu...");
     refresh();
-
     nodelay(stdscr, FALSE);
-
     getch();
-
     showMenu();
 }

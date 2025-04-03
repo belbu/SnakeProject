@@ -2,7 +2,6 @@
 #define SERPENTE_H
 #include <curses.h>
 
-
 enum DIRECTION {
     U,
     D,
@@ -24,18 +23,21 @@ protected:
     coordinates head;
     int screen_rows, screen_cols;
     WINDOW * win;
+    void find_next_tail();
+    coordinates* position; //array con le coordinate delle parti del serpente
 
-    void find_next_tail(); //trova la prossima coda quando snake si sposta
 public:
     Snake(int screen_rows, int screen_cols, int starting_length, WINDOW* win);
     ~Snake();
     void ChangeDirection(int key);
     void Draw();
-    bool Move();
-    bool CheckSelfCollision(const coordinates& new_head) const; //ritorna true se lo snake mangia se stesso
+    bool Move(); //ritorna falso se snake mangia se stesso
+    bool CheckSelfCollision(const coordinates& new_head) const;
     coordinates get_head();
-    coordinates* GetBody(int& bodyLength) const;
+    void GetBody(coordinates* buffer, int& bodyLength) const;
     void reset();
+    int getlength();
+
 };
 
 

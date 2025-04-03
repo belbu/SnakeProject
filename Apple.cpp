@@ -5,7 +5,6 @@
 
 Apple::Apple(WINDOW* win, int screen_rows, int screen_cols) {
     std::srand(std::time(0));
-
     this->icon = '$';
     this->win = win;
     this->screen_cols = screen_cols;
