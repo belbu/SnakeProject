@@ -23,7 +23,8 @@ SnakeGame::SnakeGame(int mapHeight, int mapWidth, int snakeLength, int level) : 
    }
 
    file.close();  // Chiude il file
-   std::cout << "Highscore caricato: " << highestScore << std::endl;}
+   std::cout << "Highscore caricato: " << highestScore << std::endl;
+}
 
 void SnakeGame::CheckAppleCollision() {
    coordinates head = snake.get_head();
@@ -53,13 +54,21 @@ void SnakeGame::NewApplePosition() {
 
 
 void SnakeGame::run() {
+   gameon = true;
+   score = 0;
+   snake.reset();
+   apple.random_position();
+
    int key;
    int last_key = KEY_RIGHT;
 
    while (gameon) {
-      board.initializeBoard();
 
-      key = getch();
+      timeout(100);
+      int ch = getch();
+      if (ch != ERR) {
+         key = ch;
+      }
 
       if (key == 'q') {
          this->gameon = false;
@@ -87,11 +96,8 @@ void SnakeGame::run() {
             gameon = false;
          }
       }
+      if (!gameon) break;
       napms(75);
-   }
-
-   if (!gameon) {
-      endwin();
    }
 }
 
@@ -106,4 +112,7 @@ void SnakeGame::newHighestScore() {
    }
 }
 
+int SnakeGame::getScore() {
+   return this->score;
+}
 

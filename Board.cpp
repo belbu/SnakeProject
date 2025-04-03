@@ -38,7 +38,7 @@ void Board::printHighestScore(int highestScore) {
 
 int Board::Timer() {
     int difference = time(nullptr) - startTime;
-    int remainingTime = 120 - difference; // 2 minuti totali
+    int remainingTime = 10 - difference; // 2 minuti totali
     if (remainingTime < 0) remainingTime = 0;
     mvprintw(this->startY - 2, this->startX + (this->width / 2) - 5, "Time: %02d:%02d", remainingTime / 60, remainingTime % 60);
     refresh();

@@ -136,6 +136,10 @@ coordinates* Snake:: GetBody(int& bodyLength) const {
     return bodySegments;
 }
 
+void Snake::reset() {
+    direction = R;
+}
+
 
 void Snake::find_next_tail() {
     coordinates next_tail;

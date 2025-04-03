@@ -35,6 +35,7 @@ public:
     bool CheckSelfCollision(const coordinates& new_head) const; //ritorna true se lo snake mangia se stesso
     coordinates get_head();
     coordinates* GetBody(int& bodyLength) const;
+    void reset();
 };
 
 
