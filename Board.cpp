@@ -1,6 +1,6 @@
 #include <curses.h>
 #include "Board.hpp"
-#include <chrono>
+#include <ctime>
 
 Board::Board(int height, int width, int level) {
     initscr();              // Inizializza lo schermo
@@ -21,7 +21,11 @@ Board::Board(int height, int width, int level) {
     this->width = width;
     this->height = height;
     // score(0);
-    this->startTime = time(nullptr); //
+    totalDuration = 120; // 2 minuti
+    initialDuration = 120;
+    time(&startTime);
+    frozenTime = totalDuration;
+    timerActive = true;
 }
 
 void Board::initializeBoard() {
@@ -31,19 +35,49 @@ void Board::initializeBoard() {
 
 }
 
-
 void Board::printHighestScore(int highestScore) {
     mvprintw(this->startY + this->height + 1, this->startX,"highest score: %d", highestScore);
 }
 
 int Board::Timer() {
-    int difference = time(nullptr) - startTime;
-    int remainingTime = 10 - difference; // 2 minuti totali
+    if (!timerActive) {
+        // Modalità pausa - mostra tempo congelato
+        mvprintw(this->startY - 2, this->startX + (this->width / 2) - 5,
+                "Time: %02d:%02d", frozenTime / 60, frozenTime % 60);
+        refresh();
+        return (frozenTime > 0);
+    }
+
+    time_t currentTime;
+    time(&currentTime);
+    double elapsed = difftime(currentTime, startTime);
+    int remainingTime = totalDuration - static_cast<int>(elapsed);
+
     if (remainingTime < 0) remainingTime = 0;
-    mvprintw(this->startY - 2, this->startX + (this->width / 2) - 5, "Time: %02d:%02d", remainingTime / 60, remainingTime % 60);
+
+    // Aggiorna display
+    mvprintw(this->startY - 2, this->startX + (this->width / 2) - 5,
+            "Time: %02d:%02d", remainingTime / 60, remainingTime % 60);
     refresh();
-    if (remainingTime > 0) return 1;
-    else return 0;
+
+    return (remainingTime > 0);
+}
+
+void Board::StopTimer() {
+    if (timerActive) {
+        time_t currentTime;
+        time(&currentTime);
+        frozenTime = totalDuration - static_cast<int>(difftime(currentTime, startTime));
+        timerActive = false;
+    }
+}
+
+void Board::StartTimer() {
+    if (!timerActive) {
+        time(&startTime);
+        startTime -= (totalDuration - frozenTime);
+        timerActive = true;
+    }
 }
 
 void Board::score(int score) {

@@ -4,7 +4,7 @@ CMake Error at C:/Program Files/JetBrains/CLion 2024.3.4/bin/cmake/win/x64/share
 Call Stack (most recent call first):
   C:/Program Files/JetBrains/CLion 2024.3.4/bin/cmake/win/x64/share/cmake-3.30/Modules/FindPackageHandleStandardArgs.cmake:603 (_FPHSA_FAILURE_MESSAGE)
   C:/Program Files/JetBrains/CLion 2024.3.4/bin/cmake/win/x64/share/cmake-3.30/Modules/FindCurses.cmake:268 (FIND_PACKAGE_HANDLE_STANDARD_ARGS)
-  CMakeLists.txt:23 (find_package)
+  CMakeLists.txt:19 (find_package)
 
 
 -- Configuring incomplete, errors occurred!

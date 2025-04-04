@@ -5,6 +5,7 @@
 #include "Board.hpp"
 #include "Snake.h"
 #include "Apple.h"
+#include <ctime>
 
 
 class SnakeGame {
@@ -19,10 +20,14 @@ protected:
     int level;
     int highestScore;
     void newHighestScore();
+    bool isPaused;
+
 public:
     SnakeGame(int mapHeight, int mapWidth, int snakeLength, int level);
     void run();
     int getScore();
+    int getHighestScore();
+    void PauseGame();
 };
 
 

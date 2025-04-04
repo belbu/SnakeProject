@@ -67,7 +67,7 @@ void menu::startGame() {
         switch (choice) {
             case '1': continue;
             case '2': playAgain = false; break;
-            case '3': playAgain = false; exit(EXIT_SUCCESS); break;
+            case '3': playAgain = false; HighScoreLoaded(); exit(EXIT_SUCCESS); break;
         }
     }
     showMenu();
@@ -99,6 +99,7 @@ void menu::showMenu() {
             }
             else if (user_input == 3) {
                 show = false;
+                HighScoreLoaded();
             }
             else {
                 printw("\nPress a valid key...\n");
@@ -120,11 +121,15 @@ void menu::showHighScores() {
         if (file.fail()) highestScore = 0;
     }
     file.close();
-
     printw("HIGH SCORE: %d\n\n", highestScore);
     printw("Press any key to return to menu...");
     refresh();
     nodelay(stdscr, FALSE);
     getch();
     showMenu();
+}
+
+void menu::HighScoreLoaded() {
+    int highestScore = game->getHighestScore();
+    std::cout << "Highscore caricato: " << highestScore << std::endl;
 }

@@ -15,6 +15,7 @@ public:
     void Changelevel(); //TODO
     void initScreen();
     void showHighScores();
+    void HighScoreLoaded();
 };
 
 

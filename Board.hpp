@@ -1,4 +1,5 @@
 #include <curses.h>
+#include <ctime>
 
 
 #ifndef MAPPA_H
@@ -12,7 +13,12 @@ protected:
     int level;
     int width;
     int height;
-    int startTime; //
+    time_t startTime;      // Momento di inizio/conteggio
+    int totalDuration;     // Durata totale in secondi (es. 120)
+    int frozenTime;        // Tempo rimanente quando in pausa
+    bool timerActive;      // Stato del timer
+    int initialDuration;  // Valore fisso (es. 120)
+    int remainingTime;    // Variabile dinamica
 public:
     Board(int height, int width, int level);
     ~Board();
@@ -26,6 +32,8 @@ public:
     void printHighestScore(int highestScore);
     void initializeBoard();
     int Timer();
+    void StopTimer();
+    void StartTimer();
 };
 
 
