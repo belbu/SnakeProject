@@ -99,13 +99,19 @@ void Snake::ChangeDirection(int key) {
 }
 
 void Snake::Draw() {
+    start_color();
+    init_pair(2, COLOR_GREEN, COLOR_BLACK);
     for (int i = 0; i < screen_rows; i++) {
         for (int j = 0; j < screen_cols; j++) {
             if (body[i][j]) {
                 if (i == this->head.row && j == this->head.col) {
+                    wattron(win, COLOR_PAIR(2));
                     mvwaddch(win,i,j,'X');
+                    wattroff(win, COLOR_PAIR(2));
                 }else {
-                     mvwaddch(win, i, j, 'O');
+                    wattron(win, COLOR_PAIR(2));
+                    mvwaddch(win, i, j, 'O');
+                    wattroff(win, COLOR_PAIR(2));
                 }
             }
         }

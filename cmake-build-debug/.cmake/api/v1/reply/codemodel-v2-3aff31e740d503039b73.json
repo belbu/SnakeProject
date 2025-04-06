@@ -49,8 +49,8 @@
 	"kind" : "codemodel",
 	"paths" : 
 	{
-		"build" : "/Users/francesco/Desktop/SnakeProject-master/cmake-build-debug",
-		"source" : "/Users/francesco/Desktop/SnakeProject-master"
+		"build" : "/Users/francesco/Desktop/SnakeProject/cmake-build-debug",
+		"source" : "/Users/francesco/Desktop/SnakeProject"
 	},
 	"version" : 
 	{

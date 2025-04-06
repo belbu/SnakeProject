@@ -18,7 +18,11 @@ void Apple::random_position() {
 }
 
 void Apple::drawApple() {
+    start_color();
+    init_pair(1, COLOR_RED, COLOR_BLACK);
+    wattron(this->win, COLOR_PAIR(1)); // Attiva il colore rosso
     mvwaddch(this->win,this->position.row, this->position.col, this->icon);
+    wattroff(this->win, COLOR_PAIR(1)); // Disattiva il colore
     wrefresh(this->win);
 }
 
