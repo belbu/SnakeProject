@@ -1,8 +1,10 @@
 #include <curses.h>
-#include "menu.h"
-#include "SnakeGame.h"
 #include <iostream>
 #include <fstream>
+#include "menu.h"
+#include "SnakeGame.h"
+#include "Livello.h"
+
 using namespace std;
 
 menu::menu() : game(nullptr) {
@@ -11,7 +13,6 @@ menu::menu() : game(nullptr) {
     noecho();
     keypad(stdscr, TRUE);
     curs_set(0);
-
 }
 
 menu::~menu() {
@@ -20,7 +21,7 @@ menu::~menu() {
 }
 
 void menu::initScreen() {
-    endwin(); // Chiude qualsiasi finestra esistente
+    endwin();
     initscr();
     cbreak();
     noecho();
@@ -31,14 +32,41 @@ void menu::initScreen() {
 
 void menu::startGame() {
     bool playAgain = true;
+    ListaLivelli listaLivelli;
 
     while (playAgain) {
         clear();
-        printw("----- NEW GAME -----\n");
-        printw("Press any key to start...");
+        printw("----- SELEZIONE LIVELLO -----\n");
+        printw("Scegli un livello:\n");
+
+        // Stampa i livelli sulla console
+        NodoLivello* temp = listaLivelli.getLivello(1);
+        while (temp) {
+            printw("%d - %s\n", temp->numero, temp->descrizione.c_str());
+            temp = temp->next;
+        }
+
+        printw("Inserisci il numero del livello (1-4): ");
         refresh();
-        nodelay(stdscr, FALSE);
-        getch();
+
+        int livello = 1;
+        do {
+            livello = getch() - '0';  // Converte il carattere in un numero
+        } while (livello < 1 || livello > 4);  // Assicura che il livello sia valido (da 1 a 4)
+
+        NodoLivello* livelloScelto = listaLivelli.getLivello(livello);
+        if (!livelloScelto) {
+            printw("Livello non valido. Riprova.\n");
+            refresh();
+            getch();  // Attende un tasto per continuare
+            continue;
+        }
+
+        clear();
+        printw("Hai scelto il livello: %s\n", livelloScelto->descrizione.c_str());
+        printw("Premi un tasto per iniziare...\n");
+        refresh();
+        getch();  // Attende un tasto per iniziare
         clear();
 
         if (game) {
@@ -46,7 +74,10 @@ void menu::startGame() {
             game = nullptr;
         }
 
-        game = new SnakeGame(20, 40, 7, 1);
+
+        int speed = livelloScelto->numero; // Oppure 7 - livelloScelto->numero
+        if (speed < 1) speed = 1;
+        game = new SnakeGame(20, 40, 7, speed);
         game->run();
 
         initScreen();
@@ -62,15 +93,16 @@ void menu::startGame() {
         int choice;
         do {
             choice = getch();
-        } while (choice < '1' || choice > '3');
+        } while (choice < '1' || choice > '3');  // Accetta solo le opzioni valide
 
         switch (choice) {
-            case '1': continue;
-            case '2': playAgain = false; break;
-            case '3': playAgain = false; HighScoreLoaded(); exit(EXIT_SUCCESS); break;
+            case '1': continue;  // Se si sceglie '1', si continua a giocare
+            case '2': playAgain = false; break;  // Se si sceglie '2', si esce dal ciclo di gioco
+            case '3': playAgain = false; HighScoreLoaded(); exit(EXIT_SUCCESS); break;  // Se si sceglie '3', si esce dal gioco
         }
     }
-    showMenu();
+
+    showMenu();  // Torna al menu principale
 }
 
 void menu::showMenu() {
@@ -92,19 +124,16 @@ void menu::showMenu() {
             if (user_input == 1) {
                 startGame();
                 return;
-            }
-            else if (user_input == 2) {
+            } else if (user_input == 2) {
                 showClassifica();
                 break;
-            }
-            else if (user_input == 3) {
+            } else if (user_input == 3) {
                 show = false;
                 HighScoreLoaded();
             }
-            else {
-                printw("\nPress a valid key...\n");
-                getch();
-            }
+        } else {
+            printw("\nPress a valid key...\n");
+            getch();
         }
     }
 }
@@ -114,30 +143,42 @@ void menu::showClassifica() {
     clear();
 
     std::ifstream file("classifica.txt");
-    std::vector<std::pair<int, int>> punteggi_con_partita;
+    int punteggi[100];
+    int partite[100];
+    int count = 0;
 
     int punteggio;
     int numero_partita = 1;
 
-    while (file >> punteggio) {
-        punteggi_con_partita.push_back({punteggio, numero_partita});
-        numero_partita++;
+    while (file >> punteggio && count < 100) {
+        punteggi[count] = punteggio;
+        partite[count] = numero_partita++;
+        count++;
     }
 
     file.close();
 
-    if (punteggi_con_partita.empty()) {
+    // Ordina i punteggi in modo decrescente (bubble sort)
+    for (int i = 0; i < count - 1; ++i) {
+        for (int j = i + 1; j < count; ++j) {
+            if (punteggi[i] < punteggi[j]) {
+                int tempScore = punteggi[i];
+                punteggi[i] = punteggi[j];
+                punteggi[j] = tempScore;
+
+                int tempPartita = partite[i];
+                partite[i] = partite[j];
+                partite[j] = tempPartita;
+            }
+        }
+    }
+
+    if (count == 0) {
         printw("Nessun punteggio disponibile.\n");
     } else {
-        // Ordina in base al punteggio, decrescente
-        std::sort(punteggi_con_partita.begin(), punteggi_con_partita.end(),
-                  [](const std::pair<int, int>& a, const std::pair<int, int>& b) {
-                      return a.first > b.first;
-                  });
-
         printw("----- CLASSIFICA -----\n\n");
-        for (size_t i = 0; i < punteggi_con_partita.size(); ++i) {
-            printw("Partita n.%d: %d punti\n", punteggi_con_partita[i].second, punteggi_con_partita[i].first);
+        for (int i = 0; i < count; ++i) {
+            printw("Partita n.%d: %d punti\n", partite[i], punteggi[i]);
         }
     }
 
@@ -149,6 +190,8 @@ void menu::showClassifica() {
 }
 
 void menu::HighScoreLoaded() {
-    int highestScore = game->getHighestScore();
-    std::cout << "Highscore caricato: " << highestScore << std::endl;
+    if (game) {
+        int highestScore = game->getHighestScore();
+        std::cout << "Highscore caricato: " << highestScore << std::endl;
+    }
 }

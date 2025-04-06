@@ -13,7 +13,7 @@ SnakeGame::SnakeGame(int mapHeight, int mapWidth, int snakeLength, int level) : 
    apple(board.getWindow(),board.getScreenRows(),board.getScreenCols()){
    this->gameon = true;
    this->score = 0;
-   this->level = level;
+   this->speed = level;
    this->isPaused = false;
    std::ifstream file("punteggio.txt");
    if (file) {  // Se il file esiste ed è leggibile
@@ -108,7 +108,7 @@ void SnakeGame::run() {
             Classifica();
             break;
          }
-         napms(75);
+         napms(50/speed);
       }
    }
 }
@@ -144,5 +144,14 @@ void SnakeGame::PauseGame() {
    isPaused = !isPaused;
    if (isPaused) {
       board.StopTimer();
-   }else board.StartTimer();
+      int centerY = board.getStartY() + (board.getHeight() / 2);
+      int centerX = board.getStartX() + (board.getWidth() / 2) - 2; // "PAUSA" è lungo 5
+
+      mvprintw(centerY, centerX, "PAUSA");
+      mvprintw(centerY + 1 , centerX - 7 , "Vuoi cambiare livello?");
+
+      refresh();
+   } else {
+      board.StartTimer();
+   }
 }

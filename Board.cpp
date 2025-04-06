@@ -114,6 +114,13 @@ int Board::getScreenRows() const {
     return getmaxy(win);
 }
 
+int Board::getStartY() const { return startY; }
+int Board::getStartX() const { return startX; }
+int Board::getWidth() const { return width; }
+int Board::getHeight() const { return height; }
+
+
+
 
 
 

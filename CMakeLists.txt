@@ -14,6 +14,8 @@ add_executable(Snake main.cpp
         SnakeGame.h
         menu.cpp
         menu.h
+        Livello.h
+        Livello.cpp
 )
 
 find_package(Curses REQUIRED)

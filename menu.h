@@ -1,23 +1,20 @@
 #ifndef MENU_H
 #define MENU_H
 
-#include <curses.h>
-#include "SnakeGame.h"
+class SnakeGame;
 
 class menu {
-protected:
-    void startGame();
-    SnakeGame* game;
 public:
     menu();
     ~menu();
     void showMenu();
-    void Changelevel(); //TODO
-    void initScreen();
+    void startGame();
     void showClassifica();
     void HighScoreLoaded();
+    void initScreen();
+
+private:
+    SnakeGame* game;
 };
 
-
-
-#endif //MENU_H
+#endif // MENU_H

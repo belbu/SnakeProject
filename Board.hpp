@@ -34,6 +34,11 @@ public:
     int Timer();
     void StopTimer();
     void StartTimer();
+    int getStartY() const;
+    int getStartX() const;
+    int getWidth() const;
+    int getHeight() const;
+
 };
 
 

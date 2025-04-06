@@ -22,6 +22,7 @@ protected:
     void newHighestScore();
     bool isPaused;
     void Classifica() ;
+    int speed;
 
 public:
     SnakeGame(int mapHeight, int mapWidth, int snakeLength, int level);
