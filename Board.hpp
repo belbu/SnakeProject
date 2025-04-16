@@ -38,6 +38,7 @@ public:
     int getStartX() const;
     int getWidth() const;
     int getHeight() const;
+    void setLevel(int level);
 
 };
 

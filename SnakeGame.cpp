@@ -108,7 +108,7 @@ void SnakeGame::run() {
             Classifica();
             break;
          }
-         napms(50/speed);
+         napms(300/speed);
       }
    }
 }
@@ -141,17 +141,34 @@ int SnakeGame::getHighestScore() {
 }
 
 void SnakeGame::PauseGame() {
-   isPaused = !isPaused;
-   if (isPaused) {
-      board.StopTimer();
-      int centerY = board.getStartY() + (board.getHeight() / 2);
-      int centerX = board.getStartX() + (board.getWidth() / 2) - 2; // "PAUSA" è lungo 5
+   isPaused = true;
+   board.StopTimer();
 
-      mvprintw(centerY, centerX, "PAUSA");
-      mvprintw(centerY + 1 , centerX - 7 , "Vuoi cambiare livello?");
+   int centerY = board.getStartY() + (board.getHeight() / 2);
+   int centerX = board.getStartX() + (board.getWidth() / 2) - 5;
 
+   while (isPaused) {
+      mvprintw(centerY, centerX, "   PAUSA   ");
+      mvprintw(centerY + 1, centerX - 10, "Premi [1-4] per cambiare livello");
+      mvprintw(centerY + 2, centerX - 10, "Spazio per continuare, q per uscire");
       refresh();
-   } else {
-      board.StartTimer();
+
+      int ch = getch();
+      if (ch >= '1' && ch <= '4') {
+         this->speed = ch - '0';
+         this->level = ch - '0';
+         mvprintw(centerY + 3, centerX - 10, "Velocità cambiata a %d", this->speed);
+         refresh();
+         napms(700);
+         isPaused = false;
+      } else if (ch == ' ') {
+         isPaused = false;
+      } else if (ch == 'q') {
+         this->gameon = false;
+         isPaused = false;
+      }
+      board.setLevel(this->level);
    }
+
+   board.StartTimer();
 }

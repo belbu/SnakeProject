@@ -84,6 +84,10 @@ void Board::score(int score) {
     mvprintw(this->startY - 1,this->startX,"score: %d",score);
 }
 
+void Board::setLevel(int level) {
+    this->level = level;
+}
+
 void Board::printLevel() {
     mvprintw(this->startY - 1, this->startX + this->width - 10, "level: %d",this->level);
 }
