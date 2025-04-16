@@ -32,7 +32,7 @@ void SnakeGame::CheckAppleCollision() {
    coordinates head = snake.get_head();
 
    if (head.row == apple.GetPosition().row && head.col == apple.GetPosition().col) {
-      this->score++;
+      ScoreMultiplier() ;
       NewApplePosition();
    }
 }
@@ -108,7 +108,7 @@ void SnakeGame::run() {
             Classifica();
             break;
          }
-         napms(300/speed);
+         napms(100/(speed*speed));
       }
    }
 }
@@ -171,4 +171,8 @@ void SnakeGame::PauseGame() {
    }
 
    board.StartTimer();
+}
+
+void SnakeGame::ScoreMultiplier() {
+   this->score = this->score + speed ;
 }

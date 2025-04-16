@@ -30,6 +30,7 @@ public:
     int getScore();
     int getHighestScore();
     void PauseGame();
+    void ScoreMultiplier();
 };
 
 

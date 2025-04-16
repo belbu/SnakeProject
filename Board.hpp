@@ -39,7 +39,6 @@ public:
     int getWidth() const;
     int getHeight() const;
     void setLevel(int level);
-
 };
 
 
