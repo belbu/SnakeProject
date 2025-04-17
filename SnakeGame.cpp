@@ -14,6 +14,7 @@ SnakeGame::SnakeGame(int mapHeight, int mapWidth, int snakeLength, int level) : 
    this->gameon = true;
    this->score = 0;
    this->speed = level;
+   this->level = level;
    this->isPaused = false;
    std::ifstream file("punteggio.txt");
    if (file) {  // Se il file esiste ed è leggibile
@@ -126,12 +127,11 @@ void SnakeGame::newHighestScore() {
 }
 
 void SnakeGame::Classifica() {
-   ofstream outputFile; /* Dichiarazione di tipo */
-   outputFile.open("classifica.txt" , ios :: app ); /* Apertura del file */
-   outputFile << this->score << endl;
+   ofstream outputFile;
+   outputFile.open("classifica.txt", ios::app);
+   outputFile << this->level << " " << this->score << endl;
    outputFile.close();
 }
-
 
 int SnakeGame::getScore() {
    return this->score;

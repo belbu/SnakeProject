@@ -21,7 +21,7 @@ Board::Board(int height, int width, int level) {
     this->width = width;
     this->height = height;
     // score(0);
-    totalDuration = 20; // 2 minuti
+    totalDuration = 120; // 2 minuti
     initialDuration = 120;
     time(&startTime);
     frozenTime = totalDuration;

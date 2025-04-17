@@ -143,14 +143,16 @@ void menu::showClassifica() {
     clear();
 
     std::ifstream file("classifica.txt");
+    int livelli[100];
     int punteggi[100];
     int partite[100];
     int count = 0;
 
-    int punteggio;
+    int livello, punteggio;
     int numero_partita = 1;
 
-    while (file >> punteggio && count < 100) {
+    while (file >> livello >> punteggio && count < 100) {
+        livelli[count] = livello;
         punteggi[count] = punteggio;
         partite[count] = numero_partita++;
         count++;
@@ -162,13 +164,9 @@ void menu::showClassifica() {
     for (int i = 0; i < count - 1; ++i) {
         for (int j = i + 1; j < count; ++j) {
             if (punteggi[i] < punteggi[j]) {
-                int tempScore = punteggi[i];
-                punteggi[i] = punteggi[j];
-                punteggi[j] = tempScore;
-
-                int tempPartita = partite[i];
-                partite[i] = partite[j];
-                partite[j] = tempPartita;
+                std::swap(punteggi[i], punteggi[j]);
+                std::swap(partite[i], partite[j]);
+                std::swap(livelli[i], livelli[j]);  // Aggiunto anche lo swap dei livelli!
             }
         }
     }
@@ -178,7 +176,7 @@ void menu::showClassifica() {
     } else {
         printw("----- CLASSIFICA -----\n\n");
         for (int i = 0; i < count; ++i) {
-            printw("Partita n.%d: %d punti\n", partite[i], punteggi[i]);
+            printw("Partita n.%d, Livello %d, %d punti\n", partite[i], livelli[i], punteggi[i]);
         }
     }
 
@@ -188,6 +186,7 @@ void menu::showClassifica() {
     getch();
     showMenu();
 }
+
 
 void menu::HighScoreLoaded() {
     if (game) {
