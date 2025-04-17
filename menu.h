@@ -12,6 +12,7 @@ public:
     void showClassifica();
     void HighScoreLoaded();
     void initScreen();
+    void artwork();
 
 private:
     SnakeGame* game;

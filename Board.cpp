@@ -21,7 +21,7 @@ Board::Board(int height, int width, int level) {
     this->width = width;
     this->height = height;
     // score(0);
-    totalDuration = 120; // 2 minuti
+    totalDuration = 20; // 2 minuti
     initialDuration = 120;
     time(&startTime);
     frozenTime = totalDuration;
@@ -117,6 +117,13 @@ int Board::getScreenCols() const {
 int Board::getScreenRows() const {
     return getmaxy(win);
 }
+
+void Board::ResetTimer() {
+    time(&startTime); // Imposta startTime all'orario corrente
+    frozenTime = totalDuration; // Reimposta frozenTime
+    timerActive = true; // Riattiva il timer se era in pausa
+}
+
 
 int Board::getStartY() const { return startY; }
 int Board::getStartX() const { return startX; }

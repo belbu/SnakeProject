@@ -32,7 +32,7 @@ void SnakeGame::CheckAppleCollision() {
    coordinates head = snake.get_head();
 
    if (head.row == apple.GetPosition().row && head.col == apple.GetPosition().col) {
-      ScoreMultiplier() ;
+      this -> score ++ ;
       NewApplePosition();
    }
 }
@@ -105,6 +105,7 @@ void SnakeGame::run() {
             }
          }
          if (!gameon) {
+            ScoreMultiplier();
             Classifica();
             break;
          }
@@ -158,6 +159,8 @@ void SnakeGame::PauseGame() {
          this->speed = ch - '0';
          this->level = ch - '0';
          mvprintw(centerY + 3, centerX - 10, "Velocità cambiata a %d", this->speed);
+         this->score = 0;
+         board.ResetTimer();
          refresh();
          napms(700);
          isPaused = false;
@@ -174,5 +177,5 @@ void SnakeGame::PauseGame() {
 }
 
 void SnakeGame::ScoreMultiplier() {
-   this->score = this->score + speed ;
+   this->score = this->score * speed ;
 }

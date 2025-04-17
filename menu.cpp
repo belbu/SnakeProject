@@ -111,7 +111,7 @@ void menu::showMenu() {
     bool show = true;
     while (show) {
         clear();
-        printw("----- SNAKE MENU -----\n");
+        artwork();
         printw("1 Start game\n");
         printw("2 See ranking\n");
         printw("3 Quit\n");
@@ -194,4 +194,17 @@ void menu::HighScoreLoaded() {
         int highestScore = game->getHighestScore();
         std::cout << "Highscore caricato: " << highestScore << std::endl;
     }
+}
+
+void menu::artwork() {
+    printw(R"(
+  ____  _   _    _    _  __ _____
+ / ___|| \ | |  / \  | |/ /| ____|
+ \___ \|  \| | / _ \ | ' / |  _|
+  ___) | |\  |/ ___ \| . \ | |___
+ |____/|_| \_/_/   \_\_|\_\|_____|
+
+        === MAIN MENU ===
+)");
+
 }
