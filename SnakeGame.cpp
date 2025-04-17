@@ -100,13 +100,13 @@ void SnakeGame::run() {
             apple.drawApple();
             board.refreshScreen();
             int time = board.Timer();
-            newHighestScore();
             if (!time) {
                gameon = false;
             }
          }
          if (!gameon) {
             ScoreMultiplier();
+            newHighestScore();
             Classifica();
             break;
          }
