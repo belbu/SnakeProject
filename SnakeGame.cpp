@@ -76,6 +76,8 @@ void SnakeGame::run() {
             PauseGame();
          } else if (ch == 'q') {
             this->gameon = false;
+            ScoreMultiplier();
+            newHighestScore();
             Classifica();
             break;
          } else if (!isPaused && (ch == KEY_UP || ch == KEY_DOWN || ch == KEY_LEFT || ch == KEY_RIGHT)) {
@@ -156,24 +158,32 @@ void SnakeGame::PauseGame() {
 
       int ch = getch();
       if (ch >= '1' && ch <= '4') {
-         this->speed = ch - '0';
-         this->level = ch - '0';
-         mvprintw(centerY + 3, centerX - 10, "Velocità cambiata a %d", this->speed);
-         this->score = 0;
-         board.ResetTimer();
-         refresh();
-         napms(700);
+         int newLevel = ch - '0';
+         if (newLevel != this->level) {
+            this->speed = newLevel;
+            this->level = newLevel;
+            mvprintw(centerY + 3, centerX - 10, "Velocità cambiata a %d", this->speed);
+            this->score = 0;
+            board.ResetTimer();
+            refresh();
+            napms(700);
+         }
          isPaused = false;
       } else if (ch == ' ') {
          isPaused = false;
       } else if (ch == 'q') {
          this->gameon = false;
-         isPaused = false;
+         ScoreMultiplier();  // Calcola punteggio finale (coerente con run())
+         newHighestScore();  // Aggiorna eventuale record
+         Classifica();       // Salva la partita nella classifica
+         break;              // Esci immediatamente dal menu di pausa
       }
       board.setLevel(this->level);
    }
 
-   board.StartTimer();
+   if (this->gameon) {  // Se non abbiamo deciso di uscire
+      board.StartTimer();
+   }
 }
 
 void SnakeGame::ScoreMultiplier() {
