@@ -57,10 +57,10 @@ RM = /Applications/CLion.app/Contents/bin/cmake/mac/aarch64/bin/cmake -E rm -f
 EQUALS = =
 
 # The top-level source directory on which CMake was run.
-CMAKE_SOURCE_DIR = /Users/francesco/Desktop/SnakeProject-master
+CMAKE_SOURCE_DIR = /Users/francesco/Desktop/SnakeProject
 
 # The top-level build directory on which CMake was run.
-CMAKE_BINARY_DIR = /Users/francesco/Desktop/SnakeProject-master/cmake-build-debug
+CMAKE_BINARY_DIR = /Users/francesco/Desktop/SnakeProject/cmake-build-debug
 
 #=============================================================================
 # Targets provided globally by CMake.
@@ -87,9 +87,9 @@ rebuild_cache/fast: rebuild_cache
 
 # The main all target
 all: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /Users/francesco/Desktop/SnakeProject-master/cmake-build-debug/CMakeFiles /Users/francesco/Desktop/SnakeProject-master/cmake-build-debug//CMakeFiles/progress.marks
+	$(CMAKE_COMMAND) -E cmake_progress_start /Users/francesco/Desktop/SnakeProject/cmake-build-debug/CMakeFiles /Users/francesco/Desktop/SnakeProject/cmake-build-debug//CMakeFiles/progress.marks
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 all
-	$(CMAKE_COMMAND) -E cmake_progress_start /Users/francesco/Desktop/SnakeProject-master/cmake-build-debug/CMakeFiles 0
+	$(CMAKE_COMMAND) -E cmake_progress_start /Users/francesco/Desktop/SnakeProject/cmake-build-debug/CMakeFiles 0
 .PHONY : all
 
 # The main clean target
@@ -176,6 +176,30 @@ Board.s: Board.cpp.s
 Board.cpp.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/Snake.dir/build.make CMakeFiles/Snake.dir/Board.cpp.s
 .PHONY : Board.cpp.s
+
+Livello.o: Livello.cpp.o
+.PHONY : Livello.o
+
+# target to build an object file
+Livello.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Snake.dir/build.make CMakeFiles/Snake.dir/Livello.cpp.o
+.PHONY : Livello.cpp.o
+
+Livello.i: Livello.cpp.i
+.PHONY : Livello.i
+
+# target to preprocess a source file
+Livello.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Snake.dir/build.make CMakeFiles/Snake.dir/Livello.cpp.i
+.PHONY : Livello.cpp.i
+
+Livello.s: Livello.cpp.s
+.PHONY : Livello.s
+
+# target to generate assembly for a file
+Livello.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Snake.dir/build.make CMakeFiles/Snake.dir/Livello.cpp.s
+.PHONY : Livello.cpp.s
 
 Snake.o: Snake.cpp.o
 .PHONY : Snake.o
@@ -288,6 +312,9 @@ help:
 	@echo "... Board.o"
 	@echo "... Board.i"
 	@echo "... Board.s"
+	@echo "... Livello.o"
+	@echo "... Livello.i"
+	@echo "... Livello.s"
 	@echo "... Snake.o"
 	@echo "... Snake.i"
 	@echo "... Snake.s"

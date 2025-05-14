@@ -81,7 +81,6 @@ void SnakeGame::run() {
             PauseGame();
          } else if (ch == 'q') {
             this->gameon = false;
-            ScoreMultiplier();
             newHighestScore();
             Classifica();
             break;
@@ -193,7 +192,6 @@ void SnakeGame::PauseGame() {
          isPaused = false;
       } else if (ch == 'q') {
          this->gameon = false;
-         ScoreMultiplier();  // Calcola punteggio finale (coerente con run())
          newHighestScore();  // Aggiorna eventuale record
          Classifica();       // Salva la partita nella classifica
          break;              // Esci immediatamente dal menu di pausa
