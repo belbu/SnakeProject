@@ -77,7 +77,7 @@ void menu::startGame() {
 
         int speed = livelloScelto->numero; // Oppure 7 - livelloScelto->numero
         if (speed < 1) speed = 1;
-        game = new SnakeGame(20, 40, 7, speed);
+        game = new SnakeGame(20, 40, 15, speed);
         game->run();
 
         initScreen();

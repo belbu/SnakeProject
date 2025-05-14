@@ -171,12 +171,12 @@ void SnakeGame::PauseGame() {
 
    while (isPaused) {
       mvprintw(centerY, centerX, "   PAUSA   ");
-      mvprintw(centerY + 1, centerX - 10, "Premi [1-4] per cambiare livello");
+      mvprintw(centerY + 1, centerX - 10, "Premi [1-6] per cambiare livello");
       mvprintw(centerY + 2, centerX - 10, "Spazio per continuare, q per uscire");
       refresh();
 
       int ch = getch();
-      if (ch >= '1' && ch <= '4') {
+      if (ch >= '1' && ch <= '6') {
          int newLevel = ch - '0';
          if (newLevel != this->level) {
             this->speed = newLevel;

@@ -3,10 +3,13 @@
 
 ListaLivelli::ListaLivelli() : head(nullptr), tail(nullptr) {
     // Livelli predefiniti
-    aggiungiLivello(1, "Facile - Partenza tranquilla");
-    aggiungiLivello(2, "Medio - Un po' più veloce");
-    aggiungiLivello(3, "Difficile - Sfida intensa");
-    aggiungiLivello(4, "Estremo - Solo per esperti");
+    aggiungiLivello(1, "Facilissimo");
+    aggiungiLivello(2, "Facile");
+    aggiungiLivello(3, "Medio");
+    aggiungiLivello(4, "Difficile");
+    aggiungiLivello(5, "Molto Difficile");
+    aggiungiLivello(6, "Estremo");
+
 }
 
 ListaLivelli::~ListaLivelli() {
