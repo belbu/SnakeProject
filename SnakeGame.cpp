@@ -65,11 +65,16 @@ void SnakeGame::run() {
    snake.reset();
    apple.random_position();
 
-   int key;
-   int last_key = KEY_RIGHT;
+   int currentDirection = KEY_RIGHT;
+   int pendingDirection = KEY_RIGHT;
+
+   int tickCount = 0;
+   const int TICKS_PER_MOVE = 8; //TODO MODIFICA QUESTO PER CAMBIARE VELOCITA (PIU GRANDE = PIU LENTO)
+
+   nodelay(stdscr, TRUE);
+   timeout(0);
 
    while (gameon) {
-      timeout(100);
       int ch = getch();
       if (ch != ERR) {
          if (ch == ' ') {
@@ -80,39 +85,54 @@ void SnakeGame::run() {
             newHighestScore();
             Classifica();
             break;
-         } else if (!isPaused && (ch == KEY_UP || ch == KEY_DOWN || ch == KEY_LEFT || ch == KEY_RIGHT)) {
-            key = ch;
-         }
+         } else if (!isPaused &&
+                    (ch == KEY_UP || ch == KEY_DOWN || ch == KEY_LEFT || ch == KEY_RIGHT)) {
+            // Verifica che la nuova direzione NON sia opposta a quella corrente
+            if (!(currentDirection == KEY_UP && ch == KEY_DOWN) &&
+                !(currentDirection == KEY_DOWN && ch == KEY_UP) &&
+                !(currentDirection == KEY_LEFT && ch == KEY_RIGHT) &&
+                !(currentDirection == KEY_RIGHT && ch == KEY_LEFT)) {
+               pendingDirection = ch;
+                }
+                    }
       }
-      if (!isPaused){
-         if (key == KEY_UP || key == KEY_DOWN || key == KEY_LEFT || key == KEY_RIGHT) {
-            last_key = key;
-         }
-         if (!isPaused) {
-            snake.ChangeDirection(last_key);
+
+      if (!isPaused) {
+         if (tickCount >= TICKS_PER_MOVE) {
+            // Applica la nuova direzione valida
+            currentDirection = pendingDirection;
+            snake.ChangeDirection(currentDirection);
             gameon = snake.Move();
-         }
-         if (gameon) {
+
+            if (!gameon) {
+               ScoreMultiplier();
+               newHighestScore();
+               Classifica();
+               break;
+            }
+
             CheckAppleCollision();
             board.printLevel();
-            board.score(this->score);
-            board.printHighestScore(this->highestScore);
+            board.score(score);
+            board.printHighestScore(highestScore);
             board.drawBorder();
             snake.Draw();
             apple.drawApple();
             board.refreshScreen();
-            int time = board.Timer();
-            if (!time) {
+
+            if (!board.Timer()) {
                gameon = false;
+               break;
             }
-         }
-         if (!gameon) {
-            ScoreMultiplier();
+
             newHighestScore();
-            Classifica();
-            break;
+            tickCount = 0;
          }
-         napms(100/(speed*speed));
+
+         napms(10/speed);
+         tickCount++;
+      } else {
+         napms(50/speed);
       }
    }
 }
