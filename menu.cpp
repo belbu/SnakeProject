@@ -46,13 +46,13 @@ void menu::startGame() {
             temp = temp->next;
         }
 
-        printw("Inserisci il numero del livello (1-4): ");
+        printw("Inserisci il numero del livello (1-6): ");
         refresh();
 
         int livello = 1;
         do {
             livello = getch() - '0';  // Converte il carattere in un numero
-        } while (livello < 1 || livello > 4);  // Assicura che il livello sia valido (da 1 a 4)
+        } while (livello < 1 || livello > 6);  // Assicura che il livello sia valido (da 1 a 4)
 
         NodoLivello* livelloScelto = listaLivelli.getLivello(livello);
         if (!livelloScelto) {

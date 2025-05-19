@@ -2,6 +2,7 @@
 #include <cstdlib>
 #include <curses.h>
 #include <ctime>
+#include "Snake.h"
 
 Apple::Apple(WINDOW* win, int screen_rows, int screen_cols) {
     std::srand(std::time(0));

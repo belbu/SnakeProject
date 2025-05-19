@@ -1,5 +1,5 @@
 #include <curses.h>
-#include "Board.hpp"
+#include "Board.h"
 #include <ctime>
 
 Board::Board(int height, int width, int level) {
@@ -15,12 +15,11 @@ Board::Board(int height, int width, int level) {
 
 
     this->win = newwin(height, width, this->startY, this->startX);
-    // box(win, 0, 0);
-    // wrefresh(win);
+
     this->level = level;
     this->width = width;
     this->height = height;
-    // score(0);
+
     totalDuration = 120; // 2 minuti
     initialDuration = 120;
     time(&startTime);
@@ -28,20 +27,14 @@ Board::Board(int height, int width, int level) {
     timerActive = true;
 }
 
-void Board::initializeBoard() {
-    box(this->win,0,0);
-    curs_set(0);
-    wrefresh(win);
-
-}
 
 void Board::printHighestScore(int highestScore) {
     mvprintw(this->startY + this->height + 1, this->startX,"highest score: %d", highestScore);
 }
 
-int Board::Timer() {
+bool Board::Timer() {
     if (!timerActive) {
-        // Modalità pausa - mostra tempo congelato
+        // modalità pausa, mostra tempo congelato
         mvprintw(this->startY - 2, this->startX + (this->width / 2) - 5,
                 "Time: %02d:%02d", frozenTime / 60, frozenTime % 60);
         refresh();
@@ -50,9 +43,8 @@ int Board::Timer() {
 
     time_t currentTime;
     time(&currentTime);
-    double elapsed = difftime(currentTime, startTime);
+    double elapsed = difftime(currentTime, startTime); //calcola tempo trascorso
     int remainingTime = totalDuration - static_cast<int>(elapsed);
-
     if (remainingTime < 0) remainingTime = 0;
 
     // Aggiorna display
@@ -66,8 +58,8 @@ int Board::Timer() {
 void Board::StopTimer() {
     if (timerActive) {
         time_t currentTime;
-        time(&currentTime);
-        frozenTime = totalDuration - static_cast<int>(difftime(currentTime, startTime));
+        time(&currentTime); //prende il tempo corrente
+        frozenTime = totalDuration - static_cast<int>(difftime(currentTime, startTime)); //calcola tempo rimanente
         timerActive = false;
     }
 }
@@ -75,7 +67,7 @@ void Board::StopTimer() {
 void Board::StartTimer() {
     if (!timerActive) {
         time(&startTime);
-        startTime -= (totalDuration - frozenTime);
+        startTime -= (totalDuration - frozenTime); //reimposta startTime al tempo corrente - il tempo già usato
         timerActive = true;
     }
 }
@@ -129,6 +121,7 @@ int Board::getStartY() const { return startY; }
 int Board::getStartX() const { return startX; }
 int Board::getWidth() const { return width; }
 int Board::getHeight() const { return height; }
+
 
 
 

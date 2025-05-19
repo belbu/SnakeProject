@@ -1,11 +1,12 @@
 
 #include "SnakeGame.h"
-#include "Board.hpp"
+#include "Board.h"
 #include "Snake.h"
 #include "Apple.h"
 #include <iostream>
 #include <fstream>
 #include <ctime>
+#include <windows.h>
 using namespace std;
 
 SnakeGame::SnakeGame(int mapHeight, int mapWidth, int snakeLength, int level) : board(mapHeight,mapWidth,level),
@@ -31,9 +32,8 @@ SnakeGame::SnakeGame(int mapHeight, int mapWidth, int snakeLength, int level) : 
 
 void SnakeGame::CheckAppleCollision() {
    coordinates head = snake.get_head();
-
    if (head.row == apple.GetPosition().row && head.col == apple.GetPosition().col) {
-      this -> score ++ ;
+      this -> score = score + this->speed ;
       NewApplePosition();
    }
 }
@@ -63,18 +63,18 @@ void SnakeGame::run() {
    gameon = true;
    score = 0;
    snake.reset();
-   apple.random_position();
+   NewApplePosition();
 
    int currentDirection = KEY_RIGHT;
    int pendingDirection = KEY_RIGHT;
 
    int tickCount = 0;
-   const int TICKS_PER_MOVE = 8; //TODO MODIFICA QUESTO PER CAMBIARE VELOCITA (PIU GRANDE = PIU LENTO)
 
    nodelay(stdscr, TRUE);
    timeout(0);
 
    while (gameon) {
+      int TICKS_PER_MOVE = 8 - speed;
       int ch = getch();
       if (ch != ERR) {
          if (ch == ' ') {
@@ -104,7 +104,6 @@ void SnakeGame::run() {
             gameon = snake.Move();
 
             if (!gameon) {
-               ScoreMultiplier();
                newHighestScore();
                Classifica();
                break;
@@ -202,8 +201,4 @@ void SnakeGame::PauseGame() {
    if (this->gameon) {  // Se non abbiamo deciso di uscire
       board.StartTimer();
    }
-}
-
-void SnakeGame::ScoreMultiplier() {
-   this->score = this->score * speed ;
 }
