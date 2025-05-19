@@ -1,21 +1,10 @@
 # ninja log v6
-2	275	7692938759554123	build.ninja	cfaf5d365affb4a2
-13	132	7691773538559319	CMakeFiles/Snake.dir/main.cpp.obj	1a139fd7da111a55
-21	307	7691773538690683	CMakeFiles/Snake.dir/menu.cpp.obj	cf0ae0772220f810
-17	142	7691773538625291	CMakeFiles/Snake.dir/Apple.cpp.obj	635d859191f79940
-23	144	7691773538716816	CMakeFiles/Snake.dir/Snake.cpp.obj	7ce576d56efb0794
-15	148	7691773538625291	CMakeFiles/Snake.dir/Board.cpp.obj	d37ea61ee98dc68c
-22	235	7691778198052831	CMakeFiles/Snake.dir/Livello.cpp.obj	5bf1f5be5c57f918
-25	346	7691778198083472	CMakeFiles/Snake.dir/SnakeGame.cpp.obj	7892a99c89a68247
-346	642	7691778201284085	Snake.exe	c688e35145e6eeac
-58	1212	7692959410611687	CMakeFiles/Snake.dir/main.cpp.obj	1a139fd7da111a55
-62	1221	7692959410642294	CMakeFiles/Snake.dir/Board.cpp.obj	d37ea61ee98dc68c
-71	1222	7692959410742383	CMakeFiles/Snake.dir/SnakeGame.cpp.obj	7892a99c89a68247
-65	1223	7692959410682392	CMakeFiles/Snake.dir/Apple.cpp.obj	635d859191f79940
-69	1225	7692959410712409	CMakeFiles/Snake.dir/menu.cpp.obj	cf0ae0772220f810
-1225	1799	7692959422274456	Snake.exe	c688e35145e6eeac
+2	275	7693838430966196	build.ninja	cfaf5d365affb4a2
 36	194	7693718095216687	CMakeFiles/Snake.dir/main.cpp.obj	1a139fd7da111a55
 43	381	7693718095286480	CMakeFiles/Snake.dir/menu.cpp.obj	cf0ae0772220f810
 3	156	7693720449725252	CMakeFiles/Snake.dir/Apple.cpp.obj	635d859191f79940
+23	144	7691773538716816	CMakeFiles/Snake.dir/Snake.cpp.obj	7ce576d56efb0794
+62	1221	7692959410642294	CMakeFiles/Snake.dir/Board.cpp.obj	d37ea61ee98dc68c
+22	235	7691778198052831	CMakeFiles/Snake.dir/Livello.cpp.obj	5bf1f5be5c57f918
 40	432	7693721238266963	CMakeFiles/Snake.dir/SnakeGame.cpp.obj	7892a99c89a68247
 432	872	7693721242185872	Snake.exe	c688e35145e6eeac
