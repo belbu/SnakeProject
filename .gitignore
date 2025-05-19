@@ -1,0 +1,12 @@
+# File specifici da ignorare ovunque nel progetto
+classifica.txt
+CMakeList.txt
+snake.exe
+punteggio.txt
+
+# Cartelle da ignorare
+.idea/
+cmake-build-debug/
+
+# File di sistema macOS
+.DS_Store
