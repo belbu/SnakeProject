@@ -23,13 +23,11 @@ protected:
     coordinates head;
     int screen_rows, screen_cols;
     WINDOW * win;
-    void find_next_tail();
     coordinates* position; //array con le coordinate delle parti del serpente
 
 public:
     Snake(int screen_rows, int screen_cols, int starting_length, WINDOW* win);
     ~Snake();
-    void ChangeDirection(int key);
     void Draw();
     bool Move(); //ritorna falso se snake mangia se stesso
     bool CheckSelfCollision(const coordinates& new_head) const;
@@ -37,6 +35,8 @@ public:
     void GetBody(coordinates* buffer, int& bodyLength) const;
     void reset();
     int getlength();
+    bool CanChangeDirection(int key);
+    void setDiredction(int key);
 
 };
 

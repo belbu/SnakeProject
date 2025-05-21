@@ -2,7 +2,7 @@
 #include "Board.h"
 #include <ctime>
 
-Board::Board(int height, int width, int level) {
+Board::Board(int height, int width) {
     initscr();              // Inizializza lo schermo
     cbreak();               // Disabilita il buffering di linea
     noecho();               // Disabilita l'echo dell'input
@@ -15,8 +15,6 @@ Board::Board(int height, int width, int level) {
 
 
     this->win = newwin(height, width, this->startY, this->startX);
-
-    this->level = level;
     this->width = width;
     this->height = height;
 
@@ -76,12 +74,9 @@ void Board::score(int score) {
     mvprintw(this->startY - 1,this->startX,"score: %d",score);
 }
 
-void Board::setLevel(int level) {
-    this->level = level;
-}
 
-void Board::printLevel() {
-    mvprintw(this->startY - 1, this->startX + this->width - 10, "level: %d",this->level);
+void Board::printLevel(int level) {
+    mvprintw(this->startY - 1, this->startX + this->width - 10, "level: %d",level);
 }
 
 void Board::drawBorder() {
@@ -121,6 +116,14 @@ int Board::getStartY() const { return startY; }
 int Board::getStartX() const { return startX; }
 int Board::getWidth() const { return width; }
 int Board::getHeight() const { return height; }
+
+void Board::printAll(int _score, int highestScore, int level) {
+    printLevel(level);
+    score(_score);
+    printHighestScore(highestScore);
+    drawBorder();
+}
+
 
 
 

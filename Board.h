@@ -10,7 +10,6 @@ protected:
     WINDOW* win;
     int startX;
     int startY;
-    int level;
     int width;
     int height;
     time_t startTime;      // Momento di inizio/conteggio
@@ -20,7 +19,7 @@ protected:
     int initialDuration;  // Valore fisso (es. 120)
     int remainingTime;    // Variabile dinamica
 public:
-    Board(int height, int width, int level);
+    Board(int height, int width);
     ~Board();
     void drawBorder();
     void refreshScreen();
@@ -28,7 +27,7 @@ public:
     int getScreenRows() const;  //restituisce righe finestra
     int getScreenCols() const; //restituisce colonne finestra
     void score(int score);
-    void printLevel();
+    void printLevel(int level);
     void printHighestScore(int highestScore);
     bool Timer();
     void StopTimer();
@@ -37,8 +36,8 @@ public:
     int getStartX() const;
     int getWidth() const;
     int getHeight() const;
-    void setLevel(int level);
     void ResetTimer();
+    void printAll(int _score, int highestScore, int level);
 };
 
 

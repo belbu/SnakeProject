@@ -25,7 +25,7 @@ protected:
     int speed;
 
 public:
-    SnakeGame(int mapHeight, int mapWidth, int snakeLength, int level);
+    SnakeGame(int mapHeight, int mapWidth, int snakeLength,int level);
     void run();
     int getScore();
     int getHighestScore();

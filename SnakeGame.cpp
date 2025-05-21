@@ -9,7 +9,7 @@
 #include <windows.h>
 using namespace std;
 
-SnakeGame::SnakeGame(int mapHeight, int mapWidth, int snakeLength, int level) : board(mapHeight,mapWidth,level),
+SnakeGame::SnakeGame(int mapHeight, int mapWidth, int snakeLength, int level) : board(mapHeight,mapWidth),
    snake(board.getScreenRows(), board.getScreenCols(), snakeLength, board.getWindow()),
    apple(board.getWindow(),board.getScreenRows(),board.getScreenCols()){
    this->gameon = true;
@@ -65,8 +65,7 @@ void SnakeGame::run() {
    snake.reset();
    NewApplePosition();
 
-   int currentDirection = KEY_RIGHT;
-   int pendingDirection = KEY_RIGHT;
+   int input = KEY_RIGHT;
 
    int tickCount = 0;
 
@@ -84,23 +83,14 @@ void SnakeGame::run() {
             newHighestScore();
             Classifica();
             break;
-         } else if (!isPaused &&
-                    (ch == KEY_UP || ch == KEY_DOWN || ch == KEY_LEFT || ch == KEY_RIGHT)) {
-            // Verifica che la nuova direzione NON sia opposta a quella corrente
-            if (!(currentDirection == KEY_UP && ch == KEY_DOWN) &&
-                !(currentDirection == KEY_DOWN && ch == KEY_UP) &&
-                !(currentDirection == KEY_LEFT && ch == KEY_RIGHT) &&
-                !(currentDirection == KEY_RIGHT && ch == KEY_LEFT)) {
-               pendingDirection = ch;
-                }
-                    }
+         } else if (!isPaused && (ch == KEY_UP || ch == KEY_DOWN || ch == KEY_LEFT || ch == KEY_RIGHT)) {
+            if (snake.CanChangeDirection(ch)) input = ch;
+         }
       }
 
       if (!isPaused) {
          if (tickCount >= TICKS_PER_MOVE) {
-            // Applica la nuova direzione valida
-            currentDirection = pendingDirection;
-            snake.ChangeDirection(currentDirection);
+            snake.setDiredction(input);
             gameon = snake.Move();
 
             if (!gameon) {
@@ -110,10 +100,7 @@ void SnakeGame::run() {
             }
 
             CheckAppleCollision();
-            board.printLevel();
-            board.score(score);
-            board.printHighestScore(highestScore);
-            board.drawBorder();
+            board.printAll(this->score,this->highestScore,this->level);
             snake.Draw();
             apple.drawApple();
             board.refreshScreen();
@@ -122,11 +109,9 @@ void SnakeGame::run() {
                gameon = false;
                break;
             }
-
             newHighestScore();
             tickCount = 0;
          }
-
          napms(10/speed);
          tickCount++;
       } else {
@@ -195,9 +180,7 @@ void SnakeGame::PauseGame() {
          Classifica();       // Salva la partita nella classifica
          break;              // Esci immediatamente dal menu di pausa
       }
-      board.setLevel(this->level);
    }
-
    if (this->gameon) {  // Se non abbiamo deciso di uscire
       board.StartTimer();
    }

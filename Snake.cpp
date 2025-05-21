@@ -89,14 +89,28 @@ bool Snake::Move() {
     return true;
 }
 
-void Snake::ChangeDirection(int key) {
+
+bool Snake::CanChangeDirection(int key) {
+    bool res = false;
     switch (key) {
-        case KEY_UP:    if (direction != D) direction = U; break;
-        case KEY_DOWN:  if (direction != U) direction = D; break;
-        case KEY_LEFT:  if (direction != R) direction = L; break;
-        case KEY_RIGHT: if (direction != L) direction = R; break;
+        case KEY_UP:    if (direction != D) res = true; break;
+        case KEY_DOWN:  if (direction != U) res = true; break;
+        case KEY_LEFT:  if (direction != R) res = true; break;
+        case KEY_RIGHT: if (direction != L) res = true; break;
+    }
+    return res;
+}
+
+void Snake::setDiredction(int key) {
+    switch (key) {
+        case KEY_UP:    direction = U; break;
+        case KEY_DOWN:  direction = D; break;
+        case KEY_LEFT:  direction = L; break;
+        case KEY_RIGHT:  direction = R; break;
     }
 }
+
+
 
 void Snake::Draw() {
     start_color();
