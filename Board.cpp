@@ -32,7 +32,7 @@ void Board::printHighestScore(int highestScore) {
 
 bool Board::Timer() {
     if (!timerActive) {
-        // modalità pausa, mostra tempo congelato
+        // modalità pausa, mostra tempo freezato
         mvprintw(this->startY - 2, this->startX + (this->width / 2) - 5,
                 "Time: %02d:%02d", frozenTime / 60, frozenTime % 60);
         refresh();

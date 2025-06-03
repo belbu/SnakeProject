@@ -11,7 +11,7 @@ Snake::Snake(int screen_rows, int screen_cols, int starting_length, WINDOW* win)
     this->direction = R;
     position = new coordinates[starting_length];
 
-    //crea matrice rows*cols per mappare snae
+    //crea matrice rows*cols per mappare snake
     body = new bool*[screen_rows];
     for (int i = 0; i < screen_rows; i++) {
         body[i] = new bool[screen_cols];
@@ -39,7 +39,6 @@ Snake::~Snake() {
         delete[] body[i];
     }
     delete[] body;
-    // delete[] position;
 }
 
 bool Snake::CheckSelfCollision(const coordinates& new_head) const {
@@ -51,13 +50,13 @@ bool Snake::Move() {
         this->head.row,
         this->head.col
     };
-
+    //sposta la nuoa testa
     if (this->direction == U) new_head.row--;
     if (this->direction == D) new_head.row++;
     if (this->direction == L) new_head.col--;
     if (this->direction == R) new_head.col++;
 
-    //gestione bordi per effetto pacman
+    //effetto pacman
     if (new_head.row < 1) new_head.row = screen_rows - 2;
     else if (new_head.row >= screen_rows - 1) new_head.row = 1;
     if (new_head.col < 1) new_head.col = screen_cols - 2;
@@ -77,7 +76,8 @@ bool Snake::Move() {
     body[new_head.row][new_head.col] = true;
     this->head.row = new_head.row;
     this->head.col = new_head.col;
-    //scala tutti i componenti di snake di 1 nell array in modo da avere la prossima coda all indice 0
+
+    //scala tutti i componenti di snake nell'array body di 1 in modo da avere la prossima coda all indice 0
     for (int i = 0; i < length - 1; i++) {
         position[i] = position [i+1];
     }

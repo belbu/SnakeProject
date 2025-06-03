@@ -25,8 +25,9 @@ cmake_minimum_required(VERSION 3.30)
 project(Snake)
 
 # Percorsi per MSYS2/Mingw64
-set(NCURSES_INCLUDE_DIR "C:/msys64/mingw64/include/ncurses")
-set(NCURSES_LIBRARY "C:/msys64/mingw64/lib/libncursesw.a")
+# set(NCURSES_INCLUDE_DIR "C:/MinGW/include/ncurses/curses.h")
+set(NCURSES_INCLUDE_DIR "C:/MinGW/include")
+set(NCURSES_LIBRARY "C:/MinGW/lib/libncursesw.a")
 
 # Configurazione compilazione
 add_executable(Snake

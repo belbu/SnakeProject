@@ -18,16 +18,16 @@ SnakeGame::SnakeGame(int mapHeight, int mapWidth, int snakeLength, int level) : 
    this->level = level;
    this->isPaused = false;
    std::ifstream file("punteggio.txt");
-   if (file) {  // Se il file esiste ed è leggibile
-      file >> this->highestScore;  // Legge il valore numerico
-      if (file.fail()) { // Se la lettura non è andata a buon fine
-         this->highestScore = 0; // Imposta un valore di default
+   if (file) {  // Se il file esiste ed è leggibile legge l highestScore
+      file >> this->highestScore;
+      if (file.fail()) { // Se la lettura non è andata a buon fine imposta un valore di default
+         this->highestScore = 0;
       }
    } else {
       this->highestScore = 0;  // Se il file non esiste, imposta 0
    }
 
-   file.close();  // Chiude il file
+   file.close();
 }
 
 void SnakeGame::CheckAppleCollision() {
@@ -124,8 +124,8 @@ void SnakeGame::run() {
 void SnakeGame::newHighestScore() {
    if (this->score > this->highestScore) {
       this->highestScore = this->score;
-      ofstream outputFile; /* Dichiarazione di tipo */
-      outputFile.open("punteggio.txt"); /* Apertura del file */
+      ofstream outputFile;  // salvataggio su file
+      outputFile.open("punteggio.txt");
       outputFile << this->highestScore;
       outputFile.close();
    }
@@ -176,12 +176,12 @@ void SnakeGame::PauseGame() {
          isPaused = false;
       } else if (ch == 'q') {
          this->gameon = false;
-         newHighestScore();  // Aggiorna eventuale record
+         newHighestScore();
          Classifica();       // Salva la partita nella classifica
-         break;              // Esci immediatamente dal menu di pausa
+         break;
       }
    }
-   if (this->gameon) {  // Se non abbiamo deciso di uscire
+   if (this->gameon) {
       board.StartTimer();
    }
 }
