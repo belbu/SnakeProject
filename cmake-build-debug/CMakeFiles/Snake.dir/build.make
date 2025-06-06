@@ -53,10 +53,10 @@ RM = /Applications/CLion.app/Contents/bin/cmake/mac/aarch64/bin/cmake -E rm -f
 EQUALS = =
 
 # The top-level source directory on which CMake was run.
-CMAKE_SOURCE_DIR = /Users/francesco/Desktop/SnakeProject
+CMAKE_SOURCE_DIR = /Users/francesco/Downloads/SnakeProject-master-2
 
 # The top-level build directory on which CMake was run.
-CMAKE_BINARY_DIR = /Users/francesco/Desktop/SnakeProject/cmake-build-debug
+CMAKE_BINARY_DIR = /Users/francesco/Downloads/SnakeProject-master-2/cmake-build-debug
 
 # Include any dependencies generated for this target.
 include CMakeFiles/Snake.dir/depend.make
@@ -70,102 +70,102 @@ include CMakeFiles/Snake.dir/progress.make
 include CMakeFiles/Snake.dir/flags.make
 
 CMakeFiles/Snake.dir/main.cpp.o: CMakeFiles/Snake.dir/flags.make
-CMakeFiles/Snake.dir/main.cpp.o: /Users/francesco/Desktop/SnakeProject/main.cpp
+CMakeFiles/Snake.dir/main.cpp.o: /Users/francesco/Downloads/SnakeProject-master-2/main.cpp
 CMakeFiles/Snake.dir/main.cpp.o: CMakeFiles/Snake.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/Users/francesco/Desktop/SnakeProject/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_1) "Building CXX object CMakeFiles/Snake.dir/main.cpp.o"
-	/Library/Developer/CommandLineTools/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/Snake.dir/main.cpp.o -MF CMakeFiles/Snake.dir/main.cpp.o.d -o CMakeFiles/Snake.dir/main.cpp.o -c /Users/francesco/Desktop/SnakeProject/main.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/Users/francesco/Downloads/SnakeProject-master-2/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_1) "Building CXX object CMakeFiles/Snake.dir/main.cpp.o"
+	/Library/Developer/CommandLineTools/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/Snake.dir/main.cpp.o -MF CMakeFiles/Snake.dir/main.cpp.o.d -o CMakeFiles/Snake.dir/main.cpp.o -c /Users/francesco/Downloads/SnakeProject-master-2/main.cpp
 
 CMakeFiles/Snake.dir/main.cpp.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Preprocessing CXX source to CMakeFiles/Snake.dir/main.cpp.i"
-	/Library/Developer/CommandLineTools/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /Users/francesco/Desktop/SnakeProject/main.cpp > CMakeFiles/Snake.dir/main.cpp.i
+	/Library/Developer/CommandLineTools/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /Users/francesco/Downloads/SnakeProject-master-2/main.cpp > CMakeFiles/Snake.dir/main.cpp.i
 
 CMakeFiles/Snake.dir/main.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling CXX source to assembly CMakeFiles/Snake.dir/main.cpp.s"
-	/Library/Developer/CommandLineTools/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /Users/francesco/Desktop/SnakeProject/main.cpp -o CMakeFiles/Snake.dir/main.cpp.s
+	/Library/Developer/CommandLineTools/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /Users/francesco/Downloads/SnakeProject-master-2/main.cpp -o CMakeFiles/Snake.dir/main.cpp.s
 
 CMakeFiles/Snake.dir/Board.cpp.o: CMakeFiles/Snake.dir/flags.make
-CMakeFiles/Snake.dir/Board.cpp.o: /Users/francesco/Desktop/SnakeProject/Board.cpp
+CMakeFiles/Snake.dir/Board.cpp.o: /Users/francesco/Downloads/SnakeProject-master-2/Board.cpp
 CMakeFiles/Snake.dir/Board.cpp.o: CMakeFiles/Snake.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/Users/francesco/Desktop/SnakeProject/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_2) "Building CXX object CMakeFiles/Snake.dir/Board.cpp.o"
-	/Library/Developer/CommandLineTools/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/Snake.dir/Board.cpp.o -MF CMakeFiles/Snake.dir/Board.cpp.o.d -o CMakeFiles/Snake.dir/Board.cpp.o -c /Users/francesco/Desktop/SnakeProject/Board.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/Users/francesco/Downloads/SnakeProject-master-2/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_2) "Building CXX object CMakeFiles/Snake.dir/Board.cpp.o"
+	/Library/Developer/CommandLineTools/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/Snake.dir/Board.cpp.o -MF CMakeFiles/Snake.dir/Board.cpp.o.d -o CMakeFiles/Snake.dir/Board.cpp.o -c /Users/francesco/Downloads/SnakeProject-master-2/Board.cpp
 
 CMakeFiles/Snake.dir/Board.cpp.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Preprocessing CXX source to CMakeFiles/Snake.dir/Board.cpp.i"
-	/Library/Developer/CommandLineTools/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /Users/francesco/Desktop/SnakeProject/Board.cpp > CMakeFiles/Snake.dir/Board.cpp.i
+	/Library/Developer/CommandLineTools/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /Users/francesco/Downloads/SnakeProject-master-2/Board.cpp > CMakeFiles/Snake.dir/Board.cpp.i
 
 CMakeFiles/Snake.dir/Board.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling CXX source to assembly CMakeFiles/Snake.dir/Board.cpp.s"
-	/Library/Developer/CommandLineTools/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /Users/francesco/Desktop/SnakeProject/Board.cpp -o CMakeFiles/Snake.dir/Board.cpp.s
+	/Library/Developer/CommandLineTools/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /Users/francesco/Downloads/SnakeProject-master-2/Board.cpp -o CMakeFiles/Snake.dir/Board.cpp.s
 
 CMakeFiles/Snake.dir/Apple.cpp.o: CMakeFiles/Snake.dir/flags.make
-CMakeFiles/Snake.dir/Apple.cpp.o: /Users/francesco/Desktop/SnakeProject/Apple.cpp
+CMakeFiles/Snake.dir/Apple.cpp.o: /Users/francesco/Downloads/SnakeProject-master-2/Apple.cpp
 CMakeFiles/Snake.dir/Apple.cpp.o: CMakeFiles/Snake.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/Users/francesco/Desktop/SnakeProject/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_3) "Building CXX object CMakeFiles/Snake.dir/Apple.cpp.o"
-	/Library/Developer/CommandLineTools/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/Snake.dir/Apple.cpp.o -MF CMakeFiles/Snake.dir/Apple.cpp.o.d -o CMakeFiles/Snake.dir/Apple.cpp.o -c /Users/francesco/Desktop/SnakeProject/Apple.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/Users/francesco/Downloads/SnakeProject-master-2/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_3) "Building CXX object CMakeFiles/Snake.dir/Apple.cpp.o"
+	/Library/Developer/CommandLineTools/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/Snake.dir/Apple.cpp.o -MF CMakeFiles/Snake.dir/Apple.cpp.o.d -o CMakeFiles/Snake.dir/Apple.cpp.o -c /Users/francesco/Downloads/SnakeProject-master-2/Apple.cpp
 
 CMakeFiles/Snake.dir/Apple.cpp.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Preprocessing CXX source to CMakeFiles/Snake.dir/Apple.cpp.i"
-	/Library/Developer/CommandLineTools/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /Users/francesco/Desktop/SnakeProject/Apple.cpp > CMakeFiles/Snake.dir/Apple.cpp.i
+	/Library/Developer/CommandLineTools/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /Users/francesco/Downloads/SnakeProject-master-2/Apple.cpp > CMakeFiles/Snake.dir/Apple.cpp.i
 
 CMakeFiles/Snake.dir/Apple.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling CXX source to assembly CMakeFiles/Snake.dir/Apple.cpp.s"
-	/Library/Developer/CommandLineTools/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /Users/francesco/Desktop/SnakeProject/Apple.cpp -o CMakeFiles/Snake.dir/Apple.cpp.s
+	/Library/Developer/CommandLineTools/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /Users/francesco/Downloads/SnakeProject-master-2/Apple.cpp -o CMakeFiles/Snake.dir/Apple.cpp.s
 
 CMakeFiles/Snake.dir/Livello.cpp.o: CMakeFiles/Snake.dir/flags.make
-CMakeFiles/Snake.dir/Livello.cpp.o: /Users/francesco/Desktop/SnakeProject/Livello.cpp
+CMakeFiles/Snake.dir/Livello.cpp.o: /Users/francesco/Downloads/SnakeProject-master-2/Livello.cpp
 CMakeFiles/Snake.dir/Livello.cpp.o: CMakeFiles/Snake.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/Users/francesco/Desktop/SnakeProject/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_4) "Building CXX object CMakeFiles/Snake.dir/Livello.cpp.o"
-	/Library/Developer/CommandLineTools/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/Snake.dir/Livello.cpp.o -MF CMakeFiles/Snake.dir/Livello.cpp.o.d -o CMakeFiles/Snake.dir/Livello.cpp.o -c /Users/francesco/Desktop/SnakeProject/Livello.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/Users/francesco/Downloads/SnakeProject-master-2/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_4) "Building CXX object CMakeFiles/Snake.dir/Livello.cpp.o"
+	/Library/Developer/CommandLineTools/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/Snake.dir/Livello.cpp.o -MF CMakeFiles/Snake.dir/Livello.cpp.o.d -o CMakeFiles/Snake.dir/Livello.cpp.o -c /Users/francesco/Downloads/SnakeProject-master-2/Livello.cpp
 
 CMakeFiles/Snake.dir/Livello.cpp.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Preprocessing CXX source to CMakeFiles/Snake.dir/Livello.cpp.i"
-	/Library/Developer/CommandLineTools/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /Users/francesco/Desktop/SnakeProject/Livello.cpp > CMakeFiles/Snake.dir/Livello.cpp.i
+	/Library/Developer/CommandLineTools/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /Users/francesco/Downloads/SnakeProject-master-2/Livello.cpp > CMakeFiles/Snake.dir/Livello.cpp.i
 
 CMakeFiles/Snake.dir/Livello.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling CXX source to assembly CMakeFiles/Snake.dir/Livello.cpp.s"
-	/Library/Developer/CommandLineTools/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /Users/francesco/Desktop/SnakeProject/Livello.cpp -o CMakeFiles/Snake.dir/Livello.cpp.s
+	/Library/Developer/CommandLineTools/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /Users/francesco/Downloads/SnakeProject-master-2/Livello.cpp -o CMakeFiles/Snake.dir/Livello.cpp.s
 
 CMakeFiles/Snake.dir/menu.cpp.o: CMakeFiles/Snake.dir/flags.make
-CMakeFiles/Snake.dir/menu.cpp.o: /Users/francesco/Desktop/SnakeProject/menu.cpp
+CMakeFiles/Snake.dir/menu.cpp.o: /Users/francesco/Downloads/SnakeProject-master-2/menu.cpp
 CMakeFiles/Snake.dir/menu.cpp.o: CMakeFiles/Snake.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/Users/francesco/Desktop/SnakeProject/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_5) "Building CXX object CMakeFiles/Snake.dir/menu.cpp.o"
-	/Library/Developer/CommandLineTools/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/Snake.dir/menu.cpp.o -MF CMakeFiles/Snake.dir/menu.cpp.o.d -o CMakeFiles/Snake.dir/menu.cpp.o -c /Users/francesco/Desktop/SnakeProject/menu.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/Users/francesco/Downloads/SnakeProject-master-2/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_5) "Building CXX object CMakeFiles/Snake.dir/menu.cpp.o"
+	/Library/Developer/CommandLineTools/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/Snake.dir/menu.cpp.o -MF CMakeFiles/Snake.dir/menu.cpp.o.d -o CMakeFiles/Snake.dir/menu.cpp.o -c /Users/francesco/Downloads/SnakeProject-master-2/menu.cpp
 
 CMakeFiles/Snake.dir/menu.cpp.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Preprocessing CXX source to CMakeFiles/Snake.dir/menu.cpp.i"
-	/Library/Developer/CommandLineTools/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /Users/francesco/Desktop/SnakeProject/menu.cpp > CMakeFiles/Snake.dir/menu.cpp.i
+	/Library/Developer/CommandLineTools/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /Users/francesco/Downloads/SnakeProject-master-2/menu.cpp > CMakeFiles/Snake.dir/menu.cpp.i
 
 CMakeFiles/Snake.dir/menu.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling CXX source to assembly CMakeFiles/Snake.dir/menu.cpp.s"
-	/Library/Developer/CommandLineTools/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /Users/francesco/Desktop/SnakeProject/menu.cpp -o CMakeFiles/Snake.dir/menu.cpp.s
+	/Library/Developer/CommandLineTools/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /Users/francesco/Downloads/SnakeProject-master-2/menu.cpp -o CMakeFiles/Snake.dir/menu.cpp.s
 
 CMakeFiles/Snake.dir/Snake.cpp.o: CMakeFiles/Snake.dir/flags.make
-CMakeFiles/Snake.dir/Snake.cpp.o: /Users/francesco/Desktop/SnakeProject/Snake.cpp
+CMakeFiles/Snake.dir/Snake.cpp.o: /Users/francesco/Downloads/SnakeProject-master-2/Snake.cpp
 CMakeFiles/Snake.dir/Snake.cpp.o: CMakeFiles/Snake.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/Users/francesco/Desktop/SnakeProject/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_6) "Building CXX object CMakeFiles/Snake.dir/Snake.cpp.o"
-	/Library/Developer/CommandLineTools/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/Snake.dir/Snake.cpp.o -MF CMakeFiles/Snake.dir/Snake.cpp.o.d -o CMakeFiles/Snake.dir/Snake.cpp.o -c /Users/francesco/Desktop/SnakeProject/Snake.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/Users/francesco/Downloads/SnakeProject-master-2/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_6) "Building CXX object CMakeFiles/Snake.dir/Snake.cpp.o"
+	/Library/Developer/CommandLineTools/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/Snake.dir/Snake.cpp.o -MF CMakeFiles/Snake.dir/Snake.cpp.o.d -o CMakeFiles/Snake.dir/Snake.cpp.o -c /Users/francesco/Downloads/SnakeProject-master-2/Snake.cpp
 
 CMakeFiles/Snake.dir/Snake.cpp.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Preprocessing CXX source to CMakeFiles/Snake.dir/Snake.cpp.i"
-	/Library/Developer/CommandLineTools/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /Users/francesco/Desktop/SnakeProject/Snake.cpp > CMakeFiles/Snake.dir/Snake.cpp.i
+	/Library/Developer/CommandLineTools/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /Users/francesco/Downloads/SnakeProject-master-2/Snake.cpp > CMakeFiles/Snake.dir/Snake.cpp.i
 
 CMakeFiles/Snake.dir/Snake.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling CXX source to assembly CMakeFiles/Snake.dir/Snake.cpp.s"
-	/Library/Developer/CommandLineTools/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /Users/francesco/Desktop/SnakeProject/Snake.cpp -o CMakeFiles/Snake.dir/Snake.cpp.s
+	/Library/Developer/CommandLineTools/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /Users/francesco/Downloads/SnakeProject-master-2/Snake.cpp -o CMakeFiles/Snake.dir/Snake.cpp.s
 
 CMakeFiles/Snake.dir/SnakeGame.cpp.o: CMakeFiles/Snake.dir/flags.make
-CMakeFiles/Snake.dir/SnakeGame.cpp.o: /Users/francesco/Desktop/SnakeProject/SnakeGame.cpp
+CMakeFiles/Snake.dir/SnakeGame.cpp.o: /Users/francesco/Downloads/SnakeProject-master-2/SnakeGame.cpp
 CMakeFiles/Snake.dir/SnakeGame.cpp.o: CMakeFiles/Snake.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/Users/francesco/Desktop/SnakeProject/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_7) "Building CXX object CMakeFiles/Snake.dir/SnakeGame.cpp.o"
-	/Library/Developer/CommandLineTools/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/Snake.dir/SnakeGame.cpp.o -MF CMakeFiles/Snake.dir/SnakeGame.cpp.o.d -o CMakeFiles/Snake.dir/SnakeGame.cpp.o -c /Users/francesco/Desktop/SnakeProject/SnakeGame.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/Users/francesco/Downloads/SnakeProject-master-2/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_7) "Building CXX object CMakeFiles/Snake.dir/SnakeGame.cpp.o"
+	/Library/Developer/CommandLineTools/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/Snake.dir/SnakeGame.cpp.o -MF CMakeFiles/Snake.dir/SnakeGame.cpp.o.d -o CMakeFiles/Snake.dir/SnakeGame.cpp.o -c /Users/francesco/Downloads/SnakeProject-master-2/SnakeGame.cpp
 
 CMakeFiles/Snake.dir/SnakeGame.cpp.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Preprocessing CXX source to CMakeFiles/Snake.dir/SnakeGame.cpp.i"
-	/Library/Developer/CommandLineTools/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /Users/francesco/Desktop/SnakeProject/SnakeGame.cpp > CMakeFiles/Snake.dir/SnakeGame.cpp.i
+	/Library/Developer/CommandLineTools/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /Users/francesco/Downloads/SnakeProject-master-2/SnakeGame.cpp > CMakeFiles/Snake.dir/SnakeGame.cpp.i
 
 CMakeFiles/Snake.dir/SnakeGame.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling CXX source to assembly CMakeFiles/Snake.dir/SnakeGame.cpp.s"
-	/Library/Developer/CommandLineTools/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /Users/francesco/Desktop/SnakeProject/SnakeGame.cpp -o CMakeFiles/Snake.dir/SnakeGame.cpp.s
+	/Library/Developer/CommandLineTools/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /Users/francesco/Downloads/SnakeProject-master-2/SnakeGame.cpp -o CMakeFiles/Snake.dir/SnakeGame.cpp.s
 
 # Object files for target Snake
 Snake_OBJECTS = \
@@ -191,7 +191,7 @@ Snake: CMakeFiles/Snake.dir/build.make
 Snake: /Library/Developer/CommandLineTools/SDKs/MacOSX15.2.sdk/usr/lib/libcurses.tbd
 Snake: /Library/Developer/CommandLineTools/SDKs/MacOSX15.2.sdk/usr/lib/libform.tbd
 Snake: CMakeFiles/Snake.dir/link.txt
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --bold --progress-dir=/Users/francesco/Desktop/SnakeProject/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_8) "Linking CXX executable Snake"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --bold --progress-dir=/Users/francesco/Downloads/SnakeProject-master-2/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_8) "Linking CXX executable Snake"
 	$(CMAKE_COMMAND) -E cmake_link_script CMakeFiles/Snake.dir/link.txt --verbose=$(VERBOSE)
 
 # Rule to build all files generated by this target.
@@ -203,6 +203,6 @@ CMakeFiles/Snake.dir/clean:
 .PHONY : CMakeFiles/Snake.dir/clean
 
 CMakeFiles/Snake.dir/depend:
-	cd /Users/francesco/Desktop/SnakeProject/cmake-build-debug && $(CMAKE_COMMAND) -E cmake_depends "Unix Makefiles" /Users/francesco/Desktop/SnakeProject /Users/francesco/Desktop/SnakeProject /Users/francesco/Desktop/SnakeProject/cmake-build-debug /Users/francesco/Desktop/SnakeProject/cmake-build-debug /Users/francesco/Desktop/SnakeProject/cmake-build-debug/CMakeFiles/Snake.dir/DependInfo.cmake "--color=$(COLOR)"
+	cd /Users/francesco/Downloads/SnakeProject-master-2/cmake-build-debug && $(CMAKE_COMMAND) -E cmake_depends "Unix Makefiles" /Users/francesco/Downloads/SnakeProject-master-2 /Users/francesco/Downloads/SnakeProject-master-2 /Users/francesco/Downloads/SnakeProject-master-2/cmake-build-debug /Users/francesco/Downloads/SnakeProject-master-2/cmake-build-debug /Users/francesco/Downloads/SnakeProject-master-2/cmake-build-debug/CMakeFiles/Snake.dir/DependInfo.cmake "--color=$(COLOR)"
 .PHONY : CMakeFiles/Snake.dir/depend
 

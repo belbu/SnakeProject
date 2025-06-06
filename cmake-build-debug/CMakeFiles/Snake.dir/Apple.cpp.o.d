@@ -1,6 +1,6 @@
 CMakeFiles/Snake.dir/Apple.cpp.o: \
-  /Users/francesco/Desktop/SnakeProject/Apple.cpp \
-  /Users/francesco/Desktop/SnakeProject/Apple.h \
+  /Users/francesco/Downloads/SnakeProject-master-2/Apple.cpp \
+  /Users/francesco/Downloads/SnakeProject-master-2/Apple.h \
   /Library/Developer/CommandLineTools/SDKs/MacOSX15.2.sdk/usr/include/c++/v1/ctime \
   /Library/Developer/CommandLineTools/SDKs/MacOSX15.2.sdk/usr/include/c++/v1/__assert \
   /Library/Developer/CommandLineTools/SDKs/MacOSX15.2.sdk/usr/include/c++/v1/__assertion_handler \
@@ -39,7 +39,7 @@ CMakeFiles/Snake.dir/Apple.cpp.o: \
   /Library/Developer/CommandLineTools/SDKs/MacOSX15.2.sdk/usr/include/sys/_types/_size_t.h \
   /Library/Developer/CommandLineTools/SDKs/MacOSX15.2.sdk/usr/include/sys/_types/_time_t.h \
   /Library/Developer/CommandLineTools/SDKs/MacOSX15.2.sdk/usr/include/sys/_types/_timespec.h \
-  /Users/francesco/Desktop/SnakeProject/Board.h \
+  /Users/francesco/Downloads/SnakeProject-master-2/Board.h \
   /Library/Developer/CommandLineTools/SDKs/MacOSX15.2.sdk/usr/include/curses.h \
   /Library/Developer/CommandLineTools/SDKs/MacOSX15.2.sdk/usr/include/ncurses_dll.h \
   /Library/Developer/CommandLineTools/SDKs/MacOSX15.2.sdk/usr/include/c++/v1/stdint.h \
@@ -71,7 +71,7 @@ CMakeFiles/Snake.dir/Apple.cpp.o: \
   /Library/Developer/CommandLineTools/usr/lib/clang/16/include/__stdarg___va_copy.h \
   /Library/Developer/CommandLineTools/usr/lib/clang/16/include/__stdarg_va_copy.h \
   /Library/Developer/CommandLineTools/SDKs/MacOSX15.2.sdk/usr/include/unctrl.h \
-  /Users/francesco/Desktop/SnakeProject/Snake.h \
+  /Users/francesco/Downloads/SnakeProject-master-2/Snake.h \
   /Library/Developer/CommandLineTools/SDKs/MacOSX15.2.sdk/usr/include/c++/v1/cstdlib \
   /Library/Developer/CommandLineTools/SDKs/MacOSX15.2.sdk/usr/include/c++/v1/stdlib.h \
   /Library/Developer/CommandLineTools/SDKs/MacOSX15.2.sdk/usr/include/stdlib.h \

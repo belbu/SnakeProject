@@ -1,7 +1,7 @@
 CMakeFiles/Snake.dir/SnakeGame.cpp.o: \
-  /Users/francesco/Desktop/SnakeProject/SnakeGame.cpp \
-  /Users/francesco/Desktop/SnakeProject/SnakeGame.h \
-  /Users/francesco/Desktop/SnakeProject/Board.h \
+  /Users/francesco/Downloads/SnakeProject-master-2/SnakeGame.cpp \
+  /Users/francesco/Downloads/SnakeProject-master-2/SnakeGame.h \
+  /Users/francesco/Downloads/SnakeProject-master-2/Board.h \
   /Library/Developer/CommandLineTools/SDKs/MacOSX15.2.sdk/usr/include/curses.h \
   /Library/Developer/CommandLineTools/SDKs/MacOSX15.2.sdk/usr/include/ncurses_dll.h \
   /Library/Developer/CommandLineTools/SDKs/MacOSX15.2.sdk/usr/include/c++/v1/stdint.h \
@@ -71,9 +71,9 @@ CMakeFiles/Snake.dir/SnakeGame.cpp.o: \
   /Library/Developer/CommandLineTools/SDKs/MacOSX15.2.sdk/usr/include/sys/_types/_clock_t.h \
   /Library/Developer/CommandLineTools/SDKs/MacOSX15.2.sdk/usr/include/sys/_types/_time_t.h \
   /Library/Developer/CommandLineTools/SDKs/MacOSX15.2.sdk/usr/include/sys/_types/_timespec.h \
-  /Users/francesco/Desktop/SnakeProject/Snake.h \
-  /Users/francesco/Desktop/SnakeProject/Apple.h \
-  /Users/francesco/Desktop/SnakeProject/Livello.h \
+  /Users/francesco/Downloads/SnakeProject-master-2/Snake.h \
+  /Users/francesco/Downloads/SnakeProject-master-2/Apple.h \
+  /Users/francesco/Downloads/SnakeProject-master-2/Livello.h \
   /Library/Developer/CommandLineTools/SDKs/MacOSX15.2.sdk/usr/include/c++/v1/string \
   /Library/Developer/CommandLineTools/SDKs/MacOSX15.2.sdk/usr/include/c++/v1/__algorithm/max.h \
   /Library/Developer/CommandLineTools/SDKs/MacOSX15.2.sdk/usr/include/c++/v1/__algorithm/comp.h \

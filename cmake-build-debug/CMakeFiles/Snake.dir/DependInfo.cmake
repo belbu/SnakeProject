@@ -8,13 +8,13 @@ set(CMAKE_DEPENDS_LANGUAGES
 
 # The set of dependency files which are needed:
 set(CMAKE_DEPENDS_DEPENDENCY_FILES
-  "/Users/francesco/Desktop/SnakeProject/Apple.cpp" "CMakeFiles/Snake.dir/Apple.cpp.o" "gcc" "CMakeFiles/Snake.dir/Apple.cpp.o.d"
-  "/Users/francesco/Desktop/SnakeProject/Board.cpp" "CMakeFiles/Snake.dir/Board.cpp.o" "gcc" "CMakeFiles/Snake.dir/Board.cpp.o.d"
-  "/Users/francesco/Desktop/SnakeProject/Livello.cpp" "CMakeFiles/Snake.dir/Livello.cpp.o" "gcc" "CMakeFiles/Snake.dir/Livello.cpp.o.d"
-  "/Users/francesco/Desktop/SnakeProject/Snake.cpp" "CMakeFiles/Snake.dir/Snake.cpp.o" "gcc" "CMakeFiles/Snake.dir/Snake.cpp.o.d"
-  "/Users/francesco/Desktop/SnakeProject/SnakeGame.cpp" "CMakeFiles/Snake.dir/SnakeGame.cpp.o" "gcc" "CMakeFiles/Snake.dir/SnakeGame.cpp.o.d"
-  "/Users/francesco/Desktop/SnakeProject/main.cpp" "CMakeFiles/Snake.dir/main.cpp.o" "gcc" "CMakeFiles/Snake.dir/main.cpp.o.d"
-  "/Users/francesco/Desktop/SnakeProject/menu.cpp" "CMakeFiles/Snake.dir/menu.cpp.o" "gcc" "CMakeFiles/Snake.dir/menu.cpp.o.d"
+  "/Users/francesco/Downloads/SnakeProject-master-2/Apple.cpp" "CMakeFiles/Snake.dir/Apple.cpp.o" "gcc" "CMakeFiles/Snake.dir/Apple.cpp.o.d"
+  "/Users/francesco/Downloads/SnakeProject-master-2/Board.cpp" "CMakeFiles/Snake.dir/Board.cpp.o" "gcc" "CMakeFiles/Snake.dir/Board.cpp.o.d"
+  "/Users/francesco/Downloads/SnakeProject-master-2/Livello.cpp" "CMakeFiles/Snake.dir/Livello.cpp.o" "gcc" "CMakeFiles/Snake.dir/Livello.cpp.o.d"
+  "/Users/francesco/Downloads/SnakeProject-master-2/Snake.cpp" "CMakeFiles/Snake.dir/Snake.cpp.o" "gcc" "CMakeFiles/Snake.dir/Snake.cpp.o.d"
+  "/Users/francesco/Downloads/SnakeProject-master-2/SnakeGame.cpp" "CMakeFiles/Snake.dir/SnakeGame.cpp.o" "gcc" "CMakeFiles/Snake.dir/SnakeGame.cpp.o.d"
+  "/Users/francesco/Downloads/SnakeProject-master-2/main.cpp" "CMakeFiles/Snake.dir/main.cpp.o" "gcc" "CMakeFiles/Snake.dir/main.cpp.o.d"
+  "/Users/francesco/Downloads/SnakeProject-master-2/menu.cpp" "CMakeFiles/Snake.dir/menu.cpp.o" "gcc" "CMakeFiles/Snake.dir/menu.cpp.o.d"
   )
 
 # Targets to which this target links which contain Fortran sources.

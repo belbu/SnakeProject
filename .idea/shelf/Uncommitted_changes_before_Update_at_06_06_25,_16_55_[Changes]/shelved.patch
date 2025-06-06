@@ -1,0 +1,34 @@
+Index: Livello.cpp
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+>\n#include \"Livello.h\"\n#include <iostream>\n\nListaLivelli::ListaLivelli() : head(nullptr), tail(nullptr) {\n    // Livelli predefiniti\n    aggiungiLivello(1, \"Facilissimo\");\n    aggiungiLivello(2, \"Facile\");\n    aggiungiLivello(3, \"Medio\");\n    aggiungiLivello(4, \"Difficile\");\n    aggiungiLivello(5, \"Molto Difficile\");\n    aggiungiLivello(6, \"Estremo\");\n\n}\n\nListaLivelli::~ListaLivelli() {\n    NodoLivello* current = head;\n    while (current) {\n        NodoLivello* temp = current;\n        current = current->next;\n        delete temp;\n    }\n}\n\nvoid ListaLivelli::aggiungiLivello(int numero, const std::string& descrizione) {\n    NodoLivello* nuovo = new NodoLivello{numero, descrizione, nullptr, nullptr};\n    if (!head) {\n        head = tail = nuovo;\n    } else {\n        tail->next = nuovo;\n        nuovo->prev = tail;\n        tail = nuovo;\n    }\n}\n\nNodoLivello* ListaLivelli::getLivello(int numero) {\n    NodoLivello* current = head;\n    while (current) {\n        if (current->numero == numero)\n            return current;\n        current = current->next;\n    }\n    return nullptr;\n}\n\nvoid ListaLivelli::stampaLivelli() {\n    NodoLivello* current = head;\n    while (current) {\n        std::cout << current->numero << \" - \" << current->descrizione << std::endl;\n        current = current->next;\n    }\n}\n\nNodoLivello* ListaLivelli::getLivelloVicino(NodoLivello* start, int targetNumero) {\n    if (!start) return nullptr;\n\n    if (start->numero == targetNumero) return start;\n\n    NodoLivello* current = start;\n\n    if (targetNumero > start->numero) {\n        // Scorri avanti\n        while (current && current->numero < targetNumero) {\n            current = current->next;\n        }\n        if (current && current->numero == targetNumero) return current;\n    } else {\n        // Scorri indietro\n        while (current && current->numero > targetNumero) {\n            current = current->prev;\n        }\n        if (current && current->numero == targetNumero) return current;\n    }\n\n    return nullptr;\n}\n
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/Livello.cpp b/Livello.cpp
+--- a/Livello.cpp	(revision 15a53ecaa2e42c551d6b371e3e068cac77a9e6c1)
++++ b/Livello.cpp	(date 1749219134052)
+@@ -50,7 +50,6 @@
+         current = current->next;
+     }
+ }
+-
+ NodoLivello* ListaLivelli::getLivelloVicino(NodoLivello* start, int targetNumero) {
+     if (!start) return nullptr;
+ 
+Index: cmake-build-debug/Testing/Temporary/LastTest.log
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+>Start testing: Jun 06 13:03 CEST\n----------------------------------------------------------\nEnd testing: Jun 06 13:03 CEST\n
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/cmake-build-debug/Testing/Temporary/LastTest.log b/cmake-build-debug/Testing/Temporary/LastTest.log
+--- a/cmake-build-debug/Testing/Temporary/LastTest.log	(revision 15a53ecaa2e42c551d6b371e3e068cac77a9e6c1)
++++ b/cmake-build-debug/Testing/Temporary/LastTest.log	(date 1749221698822)
+@@ -1,3 +1,3 @@
+-Start testing: Jun 06 13:03 CEST
++Start testing: Jun 06 16:54 CEST
+ ----------------------------------------------------------
+-End testing: Jun 06 13:03 CEST
++End testing: Jun 06 16:54 CEST

@@ -1,6 +1,6 @@
 CMakeFiles/Snake.dir/Livello.cpp.o: \
-  /Users/francesco/Desktop/SnakeProject/Livello.cpp \
-  /Users/francesco/Desktop/SnakeProject/Livello.h \
+  /Users/francesco/Downloads/SnakeProject-master-2/Livello.cpp \
+  /Users/francesco/Downloads/SnakeProject-master-2/Livello.h \
   /Library/Developer/CommandLineTools/SDKs/MacOSX15.2.sdk/usr/include/c++/v1/string \
   /Library/Developer/CommandLineTools/SDKs/MacOSX15.2.sdk/usr/include/c++/v1/__algorithm/max.h \
   /Library/Developer/CommandLineTools/SDKs/MacOSX15.2.sdk/usr/include/c++/v1/__algorithm/comp.h \

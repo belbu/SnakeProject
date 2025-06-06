@@ -1,5 +1,5 @@
 CMakeFiles/Snake.dir/Snake.cpp.o: \
-  /Users/francesco/Desktop/SnakeProject/Snake.cpp \
+  /Users/francesco/Downloads/SnakeProject-master-2/Snake.cpp \
   /Library/Developer/CommandLineTools/SDKs/MacOSX15.2.sdk/usr/include/curses.h \
   /Library/Developer/CommandLineTools/SDKs/MacOSX15.2.sdk/usr/include/ncurses_dll.h \
   /Library/Developer/CommandLineTools/SDKs/MacOSX15.2.sdk/usr/include/c++/v1/stdint.h \
@@ -59,4 +59,4 @@ CMakeFiles/Snake.dir/Snake.cpp.o: \
   /Library/Developer/CommandLineTools/usr/lib/clang/16/include/__stdarg___va_copy.h \
   /Library/Developer/CommandLineTools/usr/lib/clang/16/include/__stdarg_va_copy.h \
   /Library/Developer/CommandLineTools/SDKs/MacOSX15.2.sdk/usr/include/unctrl.h \
-  /Users/francesco/Desktop/SnakeProject/Snake.h
+  /Users/francesco/Downloads/SnakeProject-master-2/Snake.h
