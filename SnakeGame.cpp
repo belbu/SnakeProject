@@ -13,7 +13,7 @@
 
 using namespace std;
 
-SnakeGame::SnakeGame(int mapHeight, int mapWidth, int snakeLength, int level) : board(mapHeight,mapWidth,level),
+SnakeGame::SnakeGame(int mapHeight, int mapWidth, int snakeLength, int level) : board(mapHeight,mapWidth),
    snake(board.getScreenRows(), board.getScreenCols(), snakeLength, board.getWindow()),
    apple(board.getWindow(),board.getScreenRows(),board.getScreenCols()){
    this->gameon = true;
@@ -22,16 +22,16 @@ SnakeGame::SnakeGame(int mapHeight, int mapWidth, int snakeLength, int level) : 
    this->level = level;
    this->isPaused = false;
    std::ifstream file("punteggio.txt");
-   if (file) {  // Se il file esiste ed è leggibile
-      file >> this->highestScore;  // Legge il valore numerico
-      if (file.fail()) { // Se la lettura non è andata a buon fine
-         this->highestScore = 0; // Imposta un valore di default
+   if (file) {  // Se il file esiste ed è leggibile legge l highestScore
+      file >> this->highestScore;
+      if (file.fail()) { // Se la lettura non è andata a buon fine imposta un valore di default
+         this->highestScore = 0;
       }
    } else {
       this->highestScore = 0;  // Se il file non esiste, imposta 0
    }
 
-   file.close();  // Chiude il file
+   file.close();
 }
 
 void SnakeGame::CheckAppleCollision() {
@@ -69,8 +69,7 @@ void SnakeGame::run() {
    snake.reset();
    NewApplePosition();
 
-   int currentDirection = KEY_RIGHT;
-   int pendingDirection = KEY_RIGHT;
+   int input = KEY_RIGHT;
 
    int tickCount = 0;
 
@@ -88,23 +87,14 @@ void SnakeGame::run() {
             newHighestScore();
             Classifica();
             break;
-         } else if (!isPaused &&
-                    (ch == KEY_UP || ch == KEY_DOWN || ch == KEY_LEFT || ch == KEY_RIGHT)) {
-            // Verifica che la nuova direzione NON sia opposta a quella corrente
-            if (!(currentDirection == KEY_UP && ch == KEY_DOWN) &&
-                !(currentDirection == KEY_DOWN && ch == KEY_UP) &&
-                !(currentDirection == KEY_LEFT && ch == KEY_RIGHT) &&
-                !(currentDirection == KEY_RIGHT && ch == KEY_LEFT)) {
-               pendingDirection = ch;
-                }
-                    }
+         } else if (!isPaused && (ch == KEY_UP || ch == KEY_DOWN || ch == KEY_LEFT || ch == KEY_RIGHT)) {
+            if (snake.CanChangeDirection(ch)) input = ch;
+         }
       }
 
       if (!isPaused) {
          if (tickCount >= TICKS_PER_MOVE) {
-            // Applica la nuova direzione valida
-            currentDirection = pendingDirection;
-            snake.ChangeDirection(currentDirection);
+            snake.setDiredction(input);
             gameon = snake.Move();
 
             if (!gameon) {
@@ -114,10 +104,7 @@ void SnakeGame::run() {
             }
 
             CheckAppleCollision();
-            board.printLevel();
-            board.score(score);
-            board.printHighestScore(highestScore);
-            board.drawBorder();
+            board.printAll(this->score,this->highestScore,this->level);
             snake.Draw();
             apple.drawApple();
             board.refreshScreen();
@@ -126,15 +113,13 @@ void SnakeGame::run() {
                gameon = false;
                break;
             }
-
             newHighestScore();
             tickCount = 0;
          }
-
-         napms(10/speed);
+         napms(50/speed); //10
          tickCount++;
       } else {
-         napms(50/speed);
+         napms(100/speed); //50
       }
    }
 }
@@ -143,8 +128,8 @@ void SnakeGame::run() {
 void SnakeGame::newHighestScore() {
    if (this->score > this->highestScore) {
       this->highestScore = this->score;
-      ofstream outputFile; /* Dichiarazione di tipo */
-      outputFile.open("punteggio.txt"); /* Apertura del file */
+      ofstream outputFile;  // salvataggio su file
+      outputFile.open("punteggio.txt");
       outputFile << this->highestScore;
       outputFile.close();
    }
@@ -166,92 +151,62 @@ int SnakeGame::getHighestScore() {
 }
 
 void SnakeGame::PauseGame() {
-    isPaused = true;
-    board.StopTimer();
+   isPaused = true;
+   board.StopTimer();
 
-    int centerY = board.getStartY() + (board.getHeight() / 2);
-    int centerX = board.getStartX() + (board.getWidth() / 2) - 5;
+   int centerY = board.getStartY() + (board.getHeight() / 2);
+   int centerX = board.getStartX() + (board.getWidth() / 2) - 5;
 
-    while (isPaused) {
-        mvprintw(centerY, centerX, "   PAUSA   ");
-        mvprintw(centerY + 1, centerX - 10, "Premi [1-6] per cambiare livello");
-        mvprintw(centerY + 2, centerX - 10, "Spazio per continuare, q per uscire");
-        refresh();
+   while (isPaused) {
+      mvprintw(centerY, centerX, "   PAUSA   ");
+      mvprintw(centerY + 1, centerX - 10, "Premi [1-6] per cambiare livello");
+      mvprintw(centerY + 2, centerX - 10, "Spazio per continuare, q per uscire");
+      refresh();
 
-<<<<<<< Updated upstream
       int ch = getch();
       if (ch >= '1' && ch <= '6') {
          int newLevel = ch - '0';
          if (newLevel != this->level) {
-            this->speed = newLevel;
-            this->level = newLevel;
-            mvprintw(centerY + 3, centerX - 10, "Velocità cambiata a %d", this->speed);
-            this->score = 0;
-            board.ResetTimer();
-            refresh();
-            napms(700);
+            // Usa la lista livelli per muoverti avanti/indietro
+            // esempio: cerca il livello partendo da current level
+            NodoLivello* currentNodo = listaLivelli.getLivello(this->level);
+            NodoLivello* targetNodo = nullptr;
+
+            if (newLevel > this->level) {
+               // cerca avanti
+               NodoLivello* temp = currentNodo;
+               while(temp && temp->numero < newLevel) temp = temp->next;
+               targetNodo = temp;
+            } else if (newLevel < this->level) {
+               // cerca indietro
+               NodoLivello* temp = currentNodo;
+               while(temp && temp->numero > newLevel) temp = temp->prev;
+               targetNodo = temp;
+            }
+
+            if (targetNodo) {
+               this->speed = targetNodo->numero;
+               this->level = targetNodo->numero;
+               mvprintw(centerY + 3, centerX - 10, "Velocità cambiata a %d", this->speed);
+               this->score = 0;
+               board.ResetTimer();
+               refresh();
+               napms(700);
+            }
          }
          isPaused = false;
       } else if (ch == ' ') {
          isPaused = false;
       } else if (ch == 'q') {
          this->gameon = false;
-         newHighestScore();  // Aggiorna eventuale record
-         Classifica();       // Salva la partita nella classifica
-         break;              // Esci immediatamente dal menu di pausa
+         newHighestScore();
+         Classifica();
+         break;
       }
-      board.setLevel(this->level);
    }
-
-   if (this->gameon) {  // Se non abbiamo deciso di uscire
+   if (this->gameon) {
       board.StartTimer();
    }
-=======
-        int ch = getch();
-        if (ch >= '1' && ch <= '6') {
-            int newLevel = ch - '0';
-            if (newLevel != this->level) {
-                // Usa la lista livelli per muoverti avanti/indietro
-                // esempio: cerca il livello partendo da current level
-                NodoLivello* currentNodo = listaLivelli.getLivello(this->level);
-                NodoLivello* targetNodo = nullptr;
-
-                if (newLevel > this->level) {
-                    // cerca avanti
-                    NodoLivello* temp = currentNodo;
-                    while(temp && temp->numero < newLevel) temp = temp->next;
-                    targetNodo = temp;
-                } else if (newLevel < this->level) {
-                    // cerca indietro
-                    NodoLivello* temp = currentNodo;
-                    while(temp && temp->numero > newLevel) temp = temp->prev;
-                    targetNodo = temp;
-                }
-
-                if (targetNodo) {
-                    this->speed = targetNodo->numero;
-                    this->level = targetNodo->numero;
-                    mvprintw(centerY + 3, centerX - 10, "Velocità cambiata a %d", this->speed);
-                    this->score = 0;
-                    board.ResetTimer();
-                    refresh();
-                    napms(700);
-                }
-            }
-            isPaused = false;
-        } else if (ch == ' ') {
-            isPaused = false;
-        } else if (ch == 'q') {
-            this->gameon = false;
-            newHighestScore();
-            Classifica();
-            break;
-        }
-    }
-    if (this->gameon) {
-        board.StartTimer();
-    }
->>>>>>> Stashed changes
 }
 
 void SnakeGame::resetScore() {
@@ -269,4 +224,3 @@ void SnakeGame::setSpeed(int newSpeed) {
 void SnakeGame::stopGame() {
    this->gameon = false;
 }
-

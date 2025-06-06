@@ -1,4 +1,3 @@
-
 #include "Livello.h"
 #include <iostream>
 
@@ -50,7 +49,6 @@ void ListaLivelli::stampaLivelli() {
         current = current->next;
     }
 }
-
 NodoLivello* ListaLivelli::getLivelloVicino(NodoLivello* start, int targetNumero) {
     if (!start) return nullptr;
 

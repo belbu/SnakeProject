@@ -5,9 +5,6 @@ int main() {
 
 }
 
-}
-
-
 //      g++ main.cpp Snake.cpp menu.cpp Board.cpp SnakeGame.cpp Apple.cpp Livello.cpp -lncurses -o Snake
 
 

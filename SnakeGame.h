@@ -2,7 +2,7 @@
 #ifndef SNAKEGAME_H
 #define SNAKEGAME_H
 
-#include "Board.hpp"
+#include "Board.h"
 #include "Snake.h"
 #include "Apple.h"
 #include "Livello.h"
@@ -27,13 +27,12 @@ protected:
     int speed;
 
 public:
-    SnakeGame(int mapHeight, int mapWidth, int snakeLength, int level);
+    SnakeGame(int mapHeight, int mapWidth, int snakeLength,int level);
     void run();
     int getScore();
     int getHighestScore();
     void PauseGame();
     void ScoreMultiplier();
-    // Nuovi metodi per supportare cambio livello nel menu pausa
     void setLevel(int newLevel);
     void setSpeed(int newSpeed);
     void resetScore();

@@ -1,7 +1,7 @@
 #ifndef APPLE_H
 #define APPLE_H
 #include <ctime>
-#include "Board.hpp"
+#include "Board.h"
 #include "Snake.h"
 
 class Apple {
