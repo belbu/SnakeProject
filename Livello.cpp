@@ -50,3 +50,27 @@ void ListaLivelli::stampaLivelli() {
         current = current->next;
     }
 }
+
+NodoLivello* ListaLivelli::getLivelloVicino(NodoLivello* start, int targetNumero) {
+    if (!start) return nullptr;
+
+    if (start->numero == targetNumero) return start;
+
+    NodoLivello* current = start;
+
+    if (targetNumero > start->numero) {
+        // Scorri avanti
+        while (current && current->numero < targetNumero) {
+            current = current->next;
+        }
+        if (current && current->numero == targetNumero) return current;
+    } else {
+        // Scorri indietro
+        while (current && current->numero > targetNumero) {
+            current = current->prev;
+        }
+        if (current && current->numero == targetNumero) return current;
+    }
+
+    return nullptr;
+}

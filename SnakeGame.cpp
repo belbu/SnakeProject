@@ -3,10 +3,14 @@
 #include "Board.h"
 #include "Snake.h"
 #include "Apple.h"
+#include "Livello.h"
 #include <iostream>
 #include <fstream>
 #include <ctime>
+#ifdef _WIN32
 #include <windows.h>
+#endif
+
 using namespace std;
 
 SnakeGame::SnakeGame(int mapHeight, int mapWidth, int snakeLength, int level) : board(mapHeight,mapWidth,level),
@@ -162,18 +166,19 @@ int SnakeGame::getHighestScore() {
 }
 
 void SnakeGame::PauseGame() {
-   isPaused = true;
-   board.StopTimer();
+    isPaused = true;
+    board.StopTimer();
 
-   int centerY = board.getStartY() + (board.getHeight() / 2);
-   int centerX = board.getStartX() + (board.getWidth() / 2) - 5;
+    int centerY = board.getStartY() + (board.getHeight() / 2);
+    int centerX = board.getStartX() + (board.getWidth() / 2) - 5;
 
-   while (isPaused) {
-      mvprintw(centerY, centerX, "   PAUSA   ");
-      mvprintw(centerY + 1, centerX - 10, "Premi [1-6] per cambiare livello");
-      mvprintw(centerY + 2, centerX - 10, "Spazio per continuare, q per uscire");
-      refresh();
+    while (isPaused) {
+        mvprintw(centerY, centerX, "   PAUSA   ");
+        mvprintw(centerY + 1, centerX - 10, "Premi [1-6] per cambiare livello");
+        mvprintw(centerY + 2, centerX - 10, "Spazio per continuare, q per uscire");
+        refresh();
 
+<<<<<<< Updated upstream
       int ch = getch();
       if (ch >= '1' && ch <= '6') {
          int newLevel = ch - '0';
@@ -201,4 +206,67 @@ void SnakeGame::PauseGame() {
    if (this->gameon) {  // Se non abbiamo deciso di uscire
       board.StartTimer();
    }
+=======
+        int ch = getch();
+        if (ch >= '1' && ch <= '6') {
+            int newLevel = ch - '0';
+            if (newLevel != this->level) {
+                // Usa la lista livelli per muoverti avanti/indietro
+                // esempio: cerca il livello partendo da current level
+                NodoLivello* currentNodo = listaLivelli.getLivello(this->level);
+                NodoLivello* targetNodo = nullptr;
+
+                if (newLevel > this->level) {
+                    // cerca avanti
+                    NodoLivello* temp = currentNodo;
+                    while(temp && temp->numero < newLevel) temp = temp->next;
+                    targetNodo = temp;
+                } else if (newLevel < this->level) {
+                    // cerca indietro
+                    NodoLivello* temp = currentNodo;
+                    while(temp && temp->numero > newLevel) temp = temp->prev;
+                    targetNodo = temp;
+                }
+
+                if (targetNodo) {
+                    this->speed = targetNodo->numero;
+                    this->level = targetNodo->numero;
+                    mvprintw(centerY + 3, centerX - 10, "Velocità cambiata a %d", this->speed);
+                    this->score = 0;
+                    board.ResetTimer();
+                    refresh();
+                    napms(700);
+                }
+            }
+            isPaused = false;
+        } else if (ch == ' ') {
+            isPaused = false;
+        } else if (ch == 'q') {
+            this->gameon = false;
+            newHighestScore();
+            Classifica();
+            break;
+        }
+    }
+    if (this->gameon) {
+        board.StartTimer();
+    }
+>>>>>>> Stashed changes
 }
+
+void SnakeGame::resetScore() {
+   this->score = 0;
+}
+
+void SnakeGame::setLevel(int newLevel) {
+   this->level = newLevel;
+}
+
+void SnakeGame::setSpeed(int newSpeed) {
+   this->speed = newSpeed;
+}
+
+void SnakeGame::stopGame() {
+   this->gameon = false;
+}
+

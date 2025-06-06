@@ -16,6 +16,7 @@ public:
     ~ListaLivelli();
     void aggiungiLivello(int numero, const std::string& descrizione);
     NodoLivello* getLivello(int numero);
+    NodoLivello* getLivelloVicino(NodoLivello* start, int targetNumero);
     void stampaLivelli();
 
 private:

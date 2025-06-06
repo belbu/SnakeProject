@@ -52,7 +52,7 @@ void menu::startGame() {
         int livello = 1;
         do {
             livello = getch() - '0';  // Converte il carattere in un numero
-        } while (livello < 1 || livello > 6);  // Assicura che il livello sia valido (da 1 a 4)
+        } while (livello < 1 || livello > 6);  // Assicura che il livello sia valido (da 1 a 6)
 
         NodoLivello* livelloScelto = listaLivelli.getLivello(livello);
         if (!livelloScelto) {
@@ -74,8 +74,7 @@ void menu::startGame() {
             game = nullptr;
         }
 
-
-        int speed = livelloScelto->numero; // Oppure 7 - livelloScelto->numero
+        int speed = livelloScelto->numero;
         if (speed < 1) speed = 1;
         game = new SnakeGame(20, 40, 15, speed);
         game->run();
@@ -187,7 +186,6 @@ void menu::showClassifica() {
     showMenu();
 }
 
-
 void menu::HighScoreLoaded() {
     if (game) {
         int highestScore = game->getHighestScore();
@@ -205,5 +203,51 @@ void menu::artwork() {
 
         === MAIN MENU ===
 )");
+}
 
+// Nuova funzione per cambiare livello nella pausa usando la ricerca bidirezionale
+void menu::cambiaLivelloDurantePausa(int oldLevel, ListaLivelli& listaLivelli) {
+    NodoLivello* current = listaLivelli.getLivello(oldLevel);
+    if (!current) current = listaLivelli.getLivello(1); // fallback al primo livello
+
+    int ch;
+    bool livelloCambiato = false;
+
+    while (!livelloCambiato) {
+        clear();
+        printw("PAUSA - Premi [1-6] per cambiare livello, spazio per continuare, q per uscire\n");
+        refresh();
+
+        ch = getch();
+
+        if (ch >= '1' && ch <= '6') {
+            int newLevel = ch - '0';
+            if (newLevel != oldLevel) {
+                NodoLivello* nuovoLivello = listaLivelli.getLivelloVicino(current, newLevel);
+                if (nuovoLivello) {
+                    // Aggiorna il livello nel gioco
+                    if (game) {
+                        game->setLevel(nuovoLivello->numero);
+                        game->setSpeed(nuovoLivello->numero);
+                        game->resetScore();
+                    }
+                    printw("Livello cambiato a %s\n", nuovoLivello->descrizione.c_str());
+                    refresh();
+                    napms(700);
+                    livelloCambiato = true;
+                } else {
+                    printw("Livello non trovato.\n");
+                    refresh();
+                    napms(700);
+                }
+            } else {
+                livelloCambiato = true; // livello uguale, esci pausa
+            }
+        } else if (ch == ' ') {
+            livelloCambiato = true; // continua gioco
+        } else if (ch == 'q') {
+            if (game) game->stopGame();
+            livelloCambiato = true;
+        }
+    }
 }

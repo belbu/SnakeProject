@@ -11,6 +11,7 @@ public:
     void HighScoreLoaded();
     void initScreen();
     void artwork();
+    void cambiaLivelloDurantePausa(int oldLevel, ListaLivelli& listaLivelli);
 
 private:
     SnakeGame* game;

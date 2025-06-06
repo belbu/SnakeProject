@@ -5,6 +5,7 @@
 #include "Board.hpp"
 #include "Snake.h"
 #include "Apple.h"
+#include "Livello.h"
 #include <ctime>
 
 
@@ -13,6 +14,7 @@ protected:
     Board board;
     Snake snake;
     Apple apple;
+    ListaLivelli listaLivelli;
     void CheckAppleCollision();
     void NewApplePosition();
     bool gameon;
@@ -31,6 +33,11 @@ public:
     int getHighestScore();
     void PauseGame();
     void ScoreMultiplier();
+    // Nuovi metodi per supportare cambio livello nel menu pausa
+    void setLevel(int newLevel);
+    void setSpeed(int newSpeed);
+    void resetScore();
+    void stopGame();
 };
 
 
