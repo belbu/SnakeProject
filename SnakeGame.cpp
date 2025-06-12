@@ -37,7 +37,6 @@ SnakeGame::SnakeGame(int mapHeight, int mapWidth, int snakeLength, int level) : 
 void SnakeGame::CheckAppleCollision() {
    coordinates head = snake.get_head();
    if (head.row == apple.GetPosition().row && head.col == apple.GetPosition().col) {
-      this -> score = score + this->speed ;
       NewApplePosition();
    }
 }
@@ -113,6 +112,7 @@ void SnakeGame::run() {
                gameon = false;
                break;
             }
+            scoreMultiplier();
             newHighestScore();
             tickCount = 0;
          }
@@ -199,6 +199,7 @@ void SnakeGame::PauseGame() {
          isPaused = false;
       } else if (ch == 'q') {
          this->gameon = false;
+         scoreMultiplier();
          newHighestScore();
          Classifica();
          break;
@@ -207,6 +208,9 @@ void SnakeGame::PauseGame() {
    if (this->gameon) {
       board.StartTimer();
    }
+}
+void SnakeGame::scoreMultiplier() {
+   this -> score = score * this -> level ;
 }
 
 void SnakeGame::resetScore() {

@@ -35,6 +35,7 @@ public:
     void ScoreMultiplier();
     void setLevel(int newLevel);
     void setSpeed(int newSpeed);
+    void scoreMultiplier();
     void resetScore();
     void stopGame();
 };
