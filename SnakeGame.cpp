@@ -12,12 +12,12 @@
 #endif
 
 using namespace std;
-
 bool Bonus = false;
 
 SnakeGame::SnakeGame(int mapHeight, int mapWidth, int snakeLength, int level) : board(mapHeight,mapWidth),
    snake(board.getScreenRows(), board.getScreenCols(), snakeLength, board.getWindow()),
    apple(board.getWindow(),board.getScreenRows(),board.getScreenCols()){
+   Bonus = false;
    this->gameon = true;
    this->score = 0;
    this->speed = level;
