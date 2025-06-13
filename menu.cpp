@@ -86,7 +86,7 @@ void menu::startGame() {
         if (Bonus == true)
         {
             printw ("BONUS! \n" ) ;
-            printw ("Your score will be multiplied by %d \n", livelloScelto->numero);
+            printw ("Your score will be multiplied by %d \n", game->getLevel());
         }
         if (Bonus == false)
         {

@@ -18,8 +18,8 @@ Board::Board(int height, int width) {
     this->width = width;
     this->height = height;
 
-    totalDuration = 20; // 2 minuti
-    initialDuration = 20;
+    totalDuration = 120; // 2 minuti
+    initialDuration = 120;
     time(&startTime);
     frozenTime = totalDuration;
     timerActive = true;

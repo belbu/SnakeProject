@@ -40,6 +40,8 @@ public:
     void scoreMultiplier();
     void resetScore();
     void stopGame();
+    int getLevel() const;
+
 };
 
 

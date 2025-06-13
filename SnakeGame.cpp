@@ -234,3 +234,7 @@ void SnakeGame::setSpeed(int newSpeed) {
 void SnakeGame::stopGame() {
    this->gameon = false;
 }
+
+int SnakeGame::getLevel() const { //getter per poter leggere il livello corrente nonostante le modifiche
+   return this->level;
+}
