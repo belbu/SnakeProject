@@ -100,7 +100,6 @@ void SnakeGame::run() {
             gameon = snake.Move();
 
             if (!gameon) {
-               scoreMultiplier();
                newHighestScore();
                Classifica();
                break;
@@ -121,10 +120,10 @@ void SnakeGame::run() {
             }
             tickCount = 0;
          }
-         napms(50/speed); //10
+         napms(50/speed); //prec. 10
          tickCount++;
       } else {
-         napms(100/speed); //50
+         napms(100/speed); //prec. 50
       }
    }
 }
@@ -172,8 +171,6 @@ void SnakeGame::PauseGame() {
       if (ch >= '1' && ch <= '6') {
          int newLevel = ch - '0';
          if (newLevel != this->level) {
-            // Usa la lista livelli per muoverti avanti/indietro
-            // esempio: cerca il livello partendo da current level
             NodoLivello* currentNodo = listaLivelli.getLivello(this->level);
             NodoLivello* targetNodo = nullptr;
 
@@ -216,7 +213,6 @@ void SnakeGame::PauseGame() {
 void SnakeGame::scoreMultiplier() {
    this -> score = score * this -> level ;
    Bonus = true ;
-   //ciao
 }
 
 void SnakeGame::resetScore() {

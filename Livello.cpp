@@ -2,7 +2,6 @@
 #include <iostream>
 
 ListaLivelli::ListaLivelli() : head(nullptr), tail(nullptr) {
-    // Livelli predefiniti
     aggiungiLivello(1, "Facilissimo");
     aggiungiLivello(2, "Facile");
     aggiungiLivello(3, "Medio");
@@ -57,13 +56,13 @@ NodoLivello* ListaLivelli::getLivelloVicino(NodoLivello* start, int targetNumero
     NodoLivello* current = start;
 
     if (targetNumero > start->numero) {
-        // Scorri avanti
+        //avanti, verso il 6
         while (current && current->numero < targetNumero) {
             current = current->next;
         }
         if (current && current->numero == targetNumero) return current;
     } else {
-        // Scorri indietro
+        //indietro
         while (current && current->numero > targetNumero) {
             current = current->prev;
         }

@@ -51,14 +51,14 @@ void menu::startGame() {
 
         int livello = 1;
         do {
-            livello = getch() - '0';  // Converte il carattere in un numero
-        } while (livello < 1 || livello > 6);  // Assicura che il livello sia valido (da 1 a 4)
+            livello = getch() - '0';  // conversione carattere in numero
+        } while (livello < 1 || livello > 6);
 
         NodoLivello* livelloScelto = listaLivelli.getLivello(livello);
         if (!livelloScelto) {
             printw("Livello non valido. Riprova.\n");
             refresh();
-            getch();  // Attende un tasto per continuare
+            getch();
             continue;
         }
 
@@ -66,7 +66,7 @@ void menu::startGame() {
         printw("Hai scelto il livello: %s\n", livelloScelto->descrizione.c_str());
         printw("Premi un tasto per iniziare...\n");
         refresh();
-        getch();  // Attende un tasto per iniziare
+        getch();
         clear();
 
         if (game) {
@@ -75,7 +75,7 @@ void menu::startGame() {
         }
 
 
-        int speed = livelloScelto->numero; // Oppure 7 - livelloScelto->numero
+        int speed = livelloScelto->numero;
         if (speed < 1) speed = 1;
         game = new SnakeGame(20, 40, 15, speed);
         game->run();
@@ -102,16 +102,16 @@ void menu::startGame() {
         int choice;
         do {
             choice = getch();
-        } while (choice < '1' || choice > '3');  // Accetta solo le opzioni valide
+        } while (choice < '1' || choice > '3');
 
         switch (choice) {
-            case '1': continue;  // Se si sceglie '1', si continua a giocare
-            case '2': playAgain = false; break;  // Se si sceglie '2', si esce dal ciclo di gioco
-            case '3': playAgain = false; HighScoreLoaded(); exit(EXIT_SUCCESS); break;  // Se si sceglie '3', si esce dal gioco
+            case '1': continue;
+            case '2': playAgain = false; break;
+            case '3': playAgain = false; HighScoreLoaded(); exit(EXIT_SUCCESS);
         }
     }
 
-    showMenu();  // Torna al menu principale
+    showMenu();
 }
 
 void menu::showMenu() {
@@ -175,7 +175,7 @@ void menu::showClassifica() {
             if (punteggi[i] < punteggi[j]) {
                 std::swap(punteggi[i], punteggi[j]);
                 std::swap(partite[i], partite[j]);
-                std::swap(livelli[i], livelli[j]);  // Aggiunto anche lo swap dei livelli!
+                std::swap(livelli[i], livelli[j]);
             }
         }
     }
