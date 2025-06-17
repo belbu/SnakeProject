@@ -1,0 +1,9 @@
+Gioco Snake senza incremento di lunghezza del serpente
+Si fanno punti mangiando le mele indicate con il segno del dollaro $ 
+Portandoci sopra la testa X del serpente, se si esaurisce il tempo senza morire si ottiene un bonus di punteggio
+Sono disponibili 6 livelli dalla difficoltà crescente
+Premere 1 per giocare
+è possibile consultare lo storico dei punteggi tramite una classifica, premere 2 appena lanciato il gioco
+Premere spazio durante il gioco per cambiare livello (il punteggio sarà resettato) e il numero corrispondente al livello desiderato
+,"q" per quittare o spazio nuovamente per uscire dal menu di pausa
+Premere "q" durante la partita per uscire
